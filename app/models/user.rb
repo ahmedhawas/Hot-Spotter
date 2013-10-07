@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessible :username, :email, :password
 
+  has_many :updates
+
   validates_presence_of :username, :on => :create
   validates_presence_of :email, :on => :create
   validates_presence_of :password, :on => :create
