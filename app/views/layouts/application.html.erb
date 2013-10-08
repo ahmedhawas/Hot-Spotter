@@ -11,7 +11,11 @@
     	<div><%= flash[:notice] %></div>
 	<% end %>
 
-<%= yield %>
+	<% if logged_in? %>
+        <%= link_to 'Logout', logout_path, class: 'btn' %>
+    <% end %>
+
+	<%= yield %>
 
 </body>
 </html>
