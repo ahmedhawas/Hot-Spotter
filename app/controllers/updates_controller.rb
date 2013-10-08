@@ -6,13 +6,13 @@ class UpdatesController < ApplicationController
 	end
 
 	def new
-		@updates = Update.new
+		@update = Update.new
 	end
 
 	def create
 	    @update = Update.new
 	    if @update.save
-	      	redirect_to root, notice: "Update posted!"
+	      	redirect_to root_url, notice: "Update posted!"
 	    else
 	      	render :new
 	    end
