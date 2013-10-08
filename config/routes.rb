@@ -1,4 +1,13 @@
 Hotspotter::Application.routes.draw do
+  get "password_resets/create"
+
+  get "password_resets/edit"
+
+  get "password_resets/update"
+
+  # this route was added to get the forgot password to work
+  default_url_options :host => "localhost:3000"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,6 +21,7 @@ Hotspotter::Application.routes.draw do
 
   resources :sessions, :except => [:show, :update, :destroy]
   resources :users, :except => [:index]
+  resources :password_resets
 
   root :to => "sessions#new"
 
