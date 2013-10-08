@@ -13,17 +13,20 @@ Hotspotter::Application.routes.draw do
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
+
   # Keep in mind you can assign values other than :controller and :actions
   match "logout" => "sessions#destroy", :as => :logout  
   match 'login' => 'user_sessions#new', :as => :login
 
+  # Keep in mind you can assign values other than :controller and :action
+  root :to => "welcome#index"
+  
   resources :updates
 
   resources :sessions, :except => [:show, :update, :destroy]
   resources :users, :except => [:index]
   resources :password_resets
 
-  root :to => "sessions#new"
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
