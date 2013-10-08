@@ -1,7 +1,5 @@
 <p>
 <% @updates.each do |update| %>
-	<%= update.comment %></br>
-  Created at <%= update.created_at.hour%>:<%= update.created_at.min%>
-  by <%= update.user.username%>
+	<%= update.user.username%> says: <%= update.comment %> at <%= update.created_at.hour%>:<%= update.created_at.min%></br>
 <% end %> 
 </p>
