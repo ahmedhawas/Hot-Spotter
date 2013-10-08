@@ -1,5 +1,4 @@
-Updates
-
+<h1>Live Updates</h1>
 
 <!DOCTYPE html>
 <html>
@@ -8,6 +7,7 @@ Updates
     </script>
 
   <script>
+
     function initialize()
     {
       var mapProp = {
@@ -20,6 +20,51 @@ Updates
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
+
+    //Asking the user if they want to allow geolocation
+    var r=confirm("Allow Gelocation?");  
+    console.log(r)
+
+    if (navigator.geolocation && r) {
+      var timeoutVal = 10 * 1000 * 1000;
+      navigator.geolocation.getCurrentPosition(
+        displayPosition,
+        displayError,
+        { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+      );
+    }
+    else if (r) {
+      alert("Geolocation is not supported by this browser");
+    }
+    function displayPosition(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      var options = {
+        zoom: 16,
+        center: pos,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("googleMap"), options);
+      var marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        title: "Current Location"
+      });
+      var contentString = "<br/><b>Current location:</b> lat " + position.coords.latitude + ", long " + position.coords.longitude;
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
+      });
+    }
+    function displayError(error) {
+      var errors = {
+        1: 'Permission denied',
+        2: 'Position unavailable',
+        3: 'Request timeout'
+      };
+      alert("Error: " + errors[error.code]);
+    }
   </script>
   </head>
 
