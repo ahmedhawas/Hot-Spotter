@@ -1,21 +1,28 @@
 class UpdatesController < ApplicationController
 	before_filter :require_login
+	before_filter :require_user
 
 	def index
 		@updates = Update.all
 	end
 
 	def new
-		@update = Update.new
+		@update = @user.updates.build
 	end
 
 	def create
-	    @update = Update.new
+	    @update = @user.updates.build params[:update]
 	    if @update.save
 	      	redirect_to root_url, notice: "Update posted!"
 	    else
 	      	render :new
 	    end
+	end
+
+	protected
+	
+	def require_user
+		@user = current_user
 	end
 
 end
