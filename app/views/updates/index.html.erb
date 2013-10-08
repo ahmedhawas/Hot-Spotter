@@ -5,6 +5,12 @@
   <head>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA9JBz-80iyKF7JGzeikG0zHHqWdF2CLPs&sensor=true">
     </script>
+    <script type="text/javascript"
+  src="http://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true"></script>
+
+
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 
   <script>
 
@@ -16,7 +22,7 @@
         { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
       );
     }
-    else if (r) {
+    else{
       alert("Geolocation is not supported by this browser");
     }
     function displayPosition(position) {
@@ -39,6 +45,12 @@
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
       });
+
+      var heatmapData = generateRandomData();
+       var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: heatmapData
+      });
+      heatmap.setMap(map);
     }
     function displayError(error) {
       var errors = {
@@ -48,6 +60,21 @@
       };
       alert("Error: " + errors[error.code]);
     }
+
+
+    function getRandomInRange(from, to, fixed) {
+      return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
+    }
+    function generateRandomData() {
+      var heatData = new Array(100000);
+      for (var i = 0; i < heatData.length; i++){
+        lat = getRandomInRange(43.645527, 43.660527, 4);
+        lon = getRandomInRange(-79.390961, -79.372961, 4);
+        heatData[i] = new google.maps.LatLng(lat,lon);
+      }
+      return heatData;
+    }
+
   </script>
   </head>
 
