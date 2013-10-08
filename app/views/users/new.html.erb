@@ -1,0 +1,34 @@
+<%= form_for @user do |f| %>
+
+	<% unless f.object.errors.empty? %>
+	  <div class="alert alert-error">
+	    <strong>Try again after fixing the following things:</strong><br/>
+	    <ul>
+	      <% f.object.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+  <p>
+    <%= f.label "Email" %><br>
+    <%= f.text_field "email" %>
+  </p>
+   <p>
+    <%= f.label "Username" %><br>
+    <%= f.text_field "username" %>
+  </p>
+   <p>
+    <%= f.label "Password" %><br>
+    <%= f.password_field "password" %>
+  </p>
+   <p>
+    <%= f.label "Password Confirmation" %><br>
+    <%= f.password_field "password_confirmation" %>
+  </p>
+   <p>
+    <%= f.submit "Create Account" %>
+  </p>
+
+<%end%>
