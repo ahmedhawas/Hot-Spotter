@@ -13,7 +13,7 @@ class UpdatesController < ApplicationController
 	def create
 	    @update = @user.updates.build update_params
 	    if @update.save
-	      	redirect_to root_url, notice: "Update posted!"
+	      	redirect_to updates_path, notice: "Update posted!"
 	    else
 	      	render :new
 	    end
