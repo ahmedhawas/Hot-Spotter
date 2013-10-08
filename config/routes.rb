@@ -6,7 +6,7 @@ Hotspotter::Application.routes.draw do
   get "password_resets/update"
 
   # this route was added to get the forgot password to work
-  default_url_options :host => "localhost:3000"
+  # default_url_options :host => "localhost:3000"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -15,8 +15,8 @@ Hotspotter::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
 
   # Keep in mind you can assign values other than :controller and :actions
-  match "logout" => "sessions#destroy", :as => :logout  
-  match 'login' => 'user_sessions#new', :as => :login
+  get "logout" => "sessions#destroy", :as => :logout  
+  get 'login' => 'user_sessions#new', :as => :login
 
   # Keep in mind you can assign values other than :controller and :action
   root :to => "welcome#index"

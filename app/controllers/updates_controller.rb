@@ -11,7 +11,7 @@ class UpdatesController < ApplicationController
 	end
 
 	def create
-	    @update = @user.updates.build params[:update]
+	    @update = @user.updates.build update_params
 	    if @update.save
 	      	redirect_to root_url, notice: "Update posted!"
 	    else
@@ -25,4 +25,9 @@ class UpdatesController < ApplicationController
 		@user = current_user
 	end
 
+	private
+
+	def update_params
+		params.require(:update).permit(:comment)
+	end
 end
