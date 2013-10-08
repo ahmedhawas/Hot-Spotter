@@ -3,7 +3,7 @@
   	<%= text_field_tag :username, params[:username] %>
   </div>
     <div class="field">Password<br/>
-  	<%= text_field_tag :password, params[:password] %>
+  	<%= password_field_tag :password, params[:password] %>
   </div>
   <div class="actions"><%=submit_tag 'Login' %></div>
 <% end %>
