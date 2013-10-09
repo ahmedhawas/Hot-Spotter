@@ -1,12 +1,17 @@
 Hotspotter::Application.routes.draw do
+  get "oauths/oauth"
+  get "oauths/callback"
   get "password_resets/create"
 
   get "password_resets/edit"
 
   get "password_resets/update"
 
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+
   # this route was added to get the forgot password to work
-  # default_url_options :host => "localhost:3000"
+  default_url_options :host => "localhost:3000"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
