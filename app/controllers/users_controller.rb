@@ -14,11 +14,26 @@ class UsersController < ApplicationController
   		end
 	end
 
+
+	def update
+		@user = current_user
+
+		if @user.update_attributes user_params
+			
+    	else
+
+    	end
+
+    	respond_to do |format|
+      		# format.html # index.html.erb
+      		format.js {render json: @users, content_type: 'text/json' }
+   		end
+    end
 	
 
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :email, :password, :password_confirmation)
+		params.require(:user).permit(:username, :email, :password, :password_confirmation, :lat, :long)
 	end
 end

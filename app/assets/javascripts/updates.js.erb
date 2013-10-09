@@ -1,4 +1,8 @@
- if (navigator.geolocation) {
+// (function($) {
+  
+// })(jQuery);
+
+  if (navigator.geolocation) {
       var timeoutVal = 10 * 1000 * 1000;
       navigator.geolocation.getCurrentPosition(
         displayPosition,
@@ -19,6 +23,15 @@
     ////////////////
     var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
   	document.cookie = "lat_lng=" + escape(cookie_val);
+
+    $.ajax({
+      type: 'PATCH',
+      url: '/users/update',
+      dataType: 'json',
+      // data: { lat: '2', long: '4', id: 1 }
+      data: { user: { lat: '2', long: '4'}}
+      // data: position.coords.latitude + position.coords.longitude
+    });
 
       var map = new google.maps.Map(document.getElementById("googleMap"), options);
       var marker = new google.maps.Marker({
