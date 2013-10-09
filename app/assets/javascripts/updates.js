@@ -16,6 +16,10 @@
         center: pos,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
+    ////////////////
+    var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
+  	document.cookie = "lat_lng=" + escape(cookie_val);
+
       var map = new google.maps.Map(document.getElementById("googleMap"), options);
       var marker = new google.maps.Marker({
         position: pos,

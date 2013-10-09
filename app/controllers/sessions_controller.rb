@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
 
 	def new
+
 	end
 
 	def create
 	  	@user = login(params[:username], params[:password])
+	  	
 	    if @user  
 	    	flash[:notice] = "Logged in!"
 	      redirect_back_or_to updates_path  
@@ -12,6 +14,7 @@ class SessionsController < ApplicationController
 	    	flash[:notice] = "Invalid" 
 	      render "new"  
 	    end  
+
 	end
 
 	def destroy 

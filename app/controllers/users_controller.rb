@@ -8,11 +8,13 @@ class UsersController < ApplicationController
 		if @user.save
 			auto_login(@user)
   			flash[:success] = "Account created"
-  			redirect_to root_path
+  			redirect_to updates_path
   		else 
   			render "new"
   		end
 	end
+
+	
 
 	private
 
