@@ -1,5 +1,5 @@
-<p>
+<div class="updates">
   <% @updates.each do |update| %>
     <%= update.user.username%> says: <%= update.comment %> at <%= update.created_at.localtime.strftime('%I:%M%p')%></br>
   <% end %> 
-</p>
+</div>
