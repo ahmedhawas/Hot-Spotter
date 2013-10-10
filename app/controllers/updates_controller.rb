@@ -49,12 +49,25 @@ class UpdatesController < ApplicationController
 	end
 
 	def live
+		# @updates = Update.last
 
 		response.headers['Content-Type'] = 'text/event-stream'
+
 		# where we check for a change in the database
-		3.times do |n|
-    	response.stream.write "data: #{n}...\n\n"
-    	sleep 2
+		# @updates.each do |update|
+			# @updates.listen do |comment|
+			# 	response.stream.write("data: #{JSON.dump comment}")
+			# end
+		# end
+		start = Time.zone.now
+  	10.times do
+    Update.uncached do
+      Update.where('created_at > ?', start).each do |message|
+        response.stream.write "data: #{message.to_json}\n\n"
+        start = Time.zone.now
+     end 
+   	end
+   	sleep 2
   	end
 	rescue IOError
 		logger.info "Stream closed"

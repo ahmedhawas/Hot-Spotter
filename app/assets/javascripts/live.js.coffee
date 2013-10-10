@@ -1,3 +1,4 @@
 source = new EventSource('/updates/live')
 source.addEventListener 'message', (e) ->
-  alert e.data
+  message = $.parseJSON(e.data)
+  alert(message)
