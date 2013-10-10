@@ -4,12 +4,6 @@ class UpdatesController < ApplicationController
 
 	def index
 		@updates = Update.all
-		if logged_in?
-			@lat_lng = cookies[:lat_lng].split("|")
-			@user.lat = @lat_lng[0].to_f
-			@user.long = @lat_lng[1].to_f
-			@user.save
-		end
 	end
 
 	def new
