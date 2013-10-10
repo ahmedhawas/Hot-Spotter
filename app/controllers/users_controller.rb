@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+    @user.likes=0
 		if @user.save
 			auto_login(@user)
   			flash[:success] = "Account created"

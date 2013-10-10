@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009161959) do
+ActiveRecord::Schema.define(version: 20131010175806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,45 @@ ActiveRecord::Schema.define(version: 20131009161959) do
     t.datetime "updated_at"
   end
 
+  create_table "follows", force: true do |t|
+    t.string   "follower_type"
+    t.integer  "follower_id"
+    t.string   "followable_type"
+    t.integer  "followable_id"
+    t.datetime "created_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
+
+  create_table "likes", force: true do |t|
+    t.string   "liker_type"
+    t.integer  "liker_id"
+    t.string   "likeable_type"
+    t.integer  "likeable_id"
+    t.datetime "created_at"
+  end
+
+  add_index "likes", ["likeable_id", "likeable_type"], name: "fk_likeables", using: :btree
+  add_index "likes", ["liker_id", "liker_type"], name: "fk_likes", using: :btree
+
+  create_table "mentions", force: true do |t|
+    t.string   "mentioner_type"
+    t.integer  "mentioner_id"
+    t.string   "mentionable_type"
+    t.integer  "mentionable_id"
+    t.datetime "created_at"
+  end
+
+  add_index "mentions", ["mentionable_id", "mentionable_type"], name: "fk_mentionables", using: :btree
+  add_index "mentions", ["mentioner_id", "mentioner_type"], name: "fk_mentions", using: :btree
+
   create_table "updates", force: true do |t|
     t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "likes"
   end
 
   create_table "users", force: true do |t|
@@ -43,6 +77,7 @@ ActiveRecord::Schema.define(version: 20131009161959) do
     t.datetime "reset_password_email_sent_at"
     t.float    "lat"
     t.float    "long"
+    t.integer  "likes"
   end
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
