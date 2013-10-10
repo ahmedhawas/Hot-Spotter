@@ -8,7 +8,7 @@ gem 'rails', '4.0.0'
 gem 'sorcery'
 #gem 'sqlite3'
 gem 'pg'
-
+gem 'puma'
 gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets

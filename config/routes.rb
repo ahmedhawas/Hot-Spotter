@@ -27,6 +27,9 @@ Hotspotter::Application.routes.draw do
   root :to => "welcome#index"
   
   resources :updates do 
+    collection do
+      get 'live'
+    end
       get 'like'
       get 'unlike'
   end

@@ -2,9 +2,9 @@
   <% @updates.each do |update| %>
     <%= update.user.username%> says: <%= update.comment %> at <%= update.created_at.localtime.strftime('%I:%M%p')%>
     <%=update.likes%>
-    <% if current_user.likes?(update) && current_user.username != update.user.username%>
+    <% if current_user.likes?(update) && current_user.username !=update.user.username %>
       <%= link_to "Unlike", update_unlike_url(update) %>
-    <% elsif !current_user.likes?(update) && current_user.username != update.user.username%>  †
+    <% elsif current_user.username !=update.user.username %>
       <%= link_to "Like", update_like_url(update) %>
     <% end %> 
   </br>

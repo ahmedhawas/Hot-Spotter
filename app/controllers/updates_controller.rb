@@ -4,6 +4,7 @@ class UpdatesController < ApplicationController
 
 	def index
 		@updates = Update.all
+
 	end
 
 	def new
@@ -47,6 +48,22 @@ class UpdatesController < ApplicationController
 		redirect_to updates_path
 	end
 
+	def live
+
+		response.headers['Content-Type'] = 'text/event-stream'
+		# where we check for a change in the database
+		3.times do |n|
+    	response.stream.write "data: #{n}...\n\n"
+    	sleep 2
+  	end
+	rescue IOError
+		logger.info "Stream closed"
+		# connection was closed from client
+	ensure
+		response.stream.close
+
+	end
+
 	protected
 	
 	def require_user
@@ -54,8 +71,9 @@ class UpdatesController < ApplicationController
 	end
 
 	private
-
 	def update_params
 		params.require(:update).permit(:comment,:likes)
 	end
+
+
 end
