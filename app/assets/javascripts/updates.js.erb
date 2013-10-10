@@ -20,12 +20,14 @@
         center: pos,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
-    
-      $.ajax({
+
+    $.ajax({
       type: 'PATCH',
       url: '/users/update',
       dataType: 'json',
-      data: { user: { lat: 'position.coords.latitude', long: 'position.coords.longitude'}
+      // data: { lat: '2', long: '4', id: 1 }
+      data: { user: { lat: '2', long: '4'}}
+      // data: position.coords.latitude + position.coords.longitude
     });
 
       var map = new google.maps.Map(document.getElementById("googleMap"), options);
