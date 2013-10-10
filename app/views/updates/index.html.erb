@@ -12,9 +12,10 @@
 
     <h1>lat long</h1>
  
-    <%=  @user.lat %>
-    <%=  @user.long %>
-
-
+<script>
+window.MapModule.start({
+    userLocations: <%= @heatmap_data.html_safe %>
+});
+</script>
 
 
