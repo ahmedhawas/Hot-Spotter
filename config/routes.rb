@@ -26,7 +26,10 @@ Hotspotter::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
   root :to => "welcome#index"
   
-  resources :updates
+  resources :updates do 
+      get 'like'
+      get 'unlike'
+  end
 
   resources :sessions, :except => [:show, :update, :destroy]
   resources :users, :except => [:index]

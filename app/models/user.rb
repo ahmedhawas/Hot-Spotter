@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password, :message => "should match confirmation", :if => :password
   validates_presence_of :username, :on => :create
   validates_presence_of :email, :on => :create
+
+  acts_as_liker
 end
