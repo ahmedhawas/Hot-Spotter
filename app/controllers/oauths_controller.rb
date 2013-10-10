@@ -14,10 +14,6 @@ class OauthsController < ApplicationController
     else
       begin
         @user = create_from(provider)
-        
-        render :text => @user.inspect
-        return
-
 
         # NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule
 
