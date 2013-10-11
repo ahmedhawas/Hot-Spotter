@@ -9,6 +9,15 @@
           <%= link_to 'Sign In to Update', new_session_path, class: 'btn' %>
     <% end %>
 
+<%= form_for @update, :method => :post do |f|  %>
+
+    <%= f.label "Description"%> 
+    <%= f.text_field :comment, {placeholder: 'comment'} %>
+
+    <div class="actions"><%=submit_tag 'Post Update' %></div>
+    
+<% end %>
+
 <%= link_to 'Profile Page', user_path(@current_user.id), class: 'btn' %>
 
     <h1>lat long</h1>

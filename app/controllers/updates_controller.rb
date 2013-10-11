@@ -2,16 +2,11 @@ class UpdatesController < ApplicationController
 	before_filter :require_login
 	before_filter :require_user
 
-
-
 	def index
 		@updates = Update.all
 		@heatmap_data = get_heatmap_data.to_json
-		# puts @heatmap_data 
-	end
-
-	def new
 		@update = @user.updates.build
+		# puts @heatmap_data 
 	end
 
 	def create
