@@ -38,6 +38,10 @@ GEM
     byebug (2.3.0)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.2)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -85,6 +89,11 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    paperclip (3.5.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -156,6 +165,7 @@ DEPENDENCIES
   debugger
   jquery-rails
   letter_opener
+  paperclip (~> 3.0)
   pg
   pry-byebug
   pry-rails

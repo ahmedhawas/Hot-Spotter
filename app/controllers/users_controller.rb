@@ -21,9 +21,9 @@ class UsersController < ApplicationController
 
 		if @user.update_attributes user_params
 			
-    	else
+    else
 
-    	end
+    end
 
     	respond_to do |format|
       		# format.html # index.html.erb
@@ -38,7 +38,6 @@ class UsersController < ApplicationController
 
   private
 	def user_params
-		params.require(:user).permit(:username, :email, :password, :password_confirmation, :lat, :long)
+		params.require(:user).permit(:username, :email, :password, :password_confirmation, :lat, :long, :avatar)
 	end
-
 end

@@ -13,4 +13,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :on => :create
 
   acts_as_liker
+
+  #has_attached_file :avatar
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "10x10>" }
 end

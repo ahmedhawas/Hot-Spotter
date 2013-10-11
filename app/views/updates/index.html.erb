@@ -1,5 +1,8 @@
 <h1>Live Updates</h1>
 
+<p><%= image_tag @user.avatar.url(:thumb) %>
+<%= link_to 'Profile Page', user_path(@current_user.id), class: 'btn' %></p>
+
     <div id="googleMap" style="width:500px;height:380px;"></div>
     <%= render 'displayUpdates' %>
 
@@ -17,8 +20,6 @@
     <div class="actions"><%=submit_tag 'Post Update' %></div>
     
 <% end %>
-
-<%= link_to 'Profile Page', user_path(@current_user.id), class: 'btn' %>
 
     <h1>lat long</h1>
  

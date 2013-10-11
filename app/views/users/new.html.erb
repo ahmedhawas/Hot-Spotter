@@ -28,7 +28,11 @@
     <%= f.password_field "password_confirmation" %>
   </p>
    <p>
-    <%= f.submit "Create Account" %>
+    <%= f.label "Profile Pic" %><br>
+    <%= f.file_field :avatar %>
   </p>
 
+   <p>
+    <%= f.submit "Create Account" %>
+  </p>
 <%end%>
