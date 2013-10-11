@@ -11,6 +11,8 @@ class UpdatesController < ApplicationController
 
 	def create
 	    @update = @user.updates.build update_params
+	    @update.lat=@user.lat
+	    @update.long=@user.long
 	    @update.likes=0
 	    if @update.save
 	      	redirect_to updates_path, notice: "Update posted!"
@@ -18,7 +20,6 @@ class UpdatesController < ApplicationController
 	      	render :new
 	    end
 	end
-
 
 	def like
 		@update = Update.find(params[:update_id])
@@ -62,6 +63,6 @@ class UpdatesController < ApplicationController
 	private
 
 	def update_params
-		params.require(:update).permit(:comment,:likes, :attachment)
+		params.require(:update).permit(:comment,:likes, :attachment, :lat, :long)
 	end
 end
