@@ -1,33 +1,23 @@
-// (function($) {
-  
-// })(jQuery);
+window.MapModule = (function() {
+  var userLocations;
 
-  if (navigator.geolocation) {
-      var timeoutVal = 10 * 1000 * 1000;
-      navigator.geolocation.getCurrentPosition(
-        displayPosition,
-        displayError,
-        { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
-      );
-    }
-    else{
-      alert("Geolocation is not supported by this browser");
-    }
-    function displayPosition(position) {
+ function displayPosition(position) {
       var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var options = {
         zoom: 16,
         center: pos,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
+      var testingLat = parseFloat(position.coords.latitude);
+      var testingLng = parseFloat(position.coords.longitude);
+      console.log(testingLat);
 
     $.ajax({
       type: 'PATCH',
       url: '/users/update',
       dataType: 'json',
-      // data: { lat: '2', long: '4', id: 1 }
-      data: { user: { lat: '2', long: '4'}}
-      // data: position.coords.latitude + position.coords.longitude
+      // data: { user: { lat: 'position.coords.latitude', long: 'position.coords.longitude'}}
+      data: { user: { lat: position.coords.latitude, long: position.coords.longitude}}
     });
 
       var map = new google.maps.Map(document.getElementById("googleMap"), options);
@@ -44,12 +34,19 @@
         infowindow.open(map,marker);
       });
 
-      var heatmapData = generateRandomData();
-       var heatmap = new google.maps.visualization.HeatmapLayer({
+       // var heatmapData = generateRandomData();
+      
+    
+      var heatmapData =  _.map(userLocations, function(location){
+          return new google.maps.LatLng(location.lat,location.lng)})
+
+      var heatmap = new google.maps.visualization.HeatmapLayer({
         data: heatmapData
       });
       heatmap.setMap(map);
     }
+
+
     function displayError(error) {
       var errors = {
         1: 'Permission denied',
@@ -64,11 +61,35 @@
       return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
     }
     function generateRandomData() {
-      var heatData = new Array(100000);
+      var heatData = new Array(10000);
+      lat = <%= User.all.first.lat %>
+      lng = <%= User.all.first.long %>
       for (var i = 0; i < heatData.length; i++){
-        lat = getRandomInRange(43.645527, 43.660527, 4);
-        lon = getRandomInRange(-79.390961, -79.372961, 4);
-        heatData[i] = new google.maps.LatLng(lat,lon);
+        // lat = getRandomInRange(43.645527, 43.660527, 4);
+        // lng = getRandomInRange(-79.390961, -79.372961, 4);
+       
+        heatData[i] = new google.maps.LatLng(lat,lng);
       }
       return heatData;
     }
+
+  return {
+    start: function(opts) {
+      userLocations = opts.userLocations;
+      
+      console.log('Use locations', userLocations);
+
+      if (navigator.geolocation) {
+        var timeoutVal = 10 * 1000 * 1000;
+        navigator.geolocation.watchPosition(
+          displayPosition,
+          displayError,
+          { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+        );
+      }
+      else{
+        alert("Geolocation is not supported by this browser");
+      }
+    }
+  };
+}());

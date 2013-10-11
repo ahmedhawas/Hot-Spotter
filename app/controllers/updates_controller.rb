@@ -2,8 +2,12 @@ class UpdatesController < ApplicationController
 	before_filter :require_login
 	before_filter :require_user
 
+
+
 	def index
 		@updates = Update.all
+		@heatmap_data = get_heatmap_data.to_json
+		# puts @heatmap_data 
 	end
 
 	def new
@@ -19,6 +23,7 @@ class UpdatesController < ApplicationController
 	      	render :new
 	    end
 	end
+
 
 	def like
 		@update = Update.find(params[:update_id])
@@ -45,6 +50,12 @@ class UpdatesController < ApplicationController
 		update_owner.save!
 		
 		redirect_to updates_path
+	end
+
+	def get_heatmap_data
+		users = User.all 
+		users.map { |user| {:lat => user.lat, :lng => user.long} }
+	 	
 	end
 
 	protected

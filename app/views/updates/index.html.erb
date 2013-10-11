@@ -11,6 +11,12 @@
 
 <%= link_to 'Profile Page', user_path(@current_user.id), class: 'btn' %>
 
-
+    <h1>lat long</h1>
+ 
+<script>
+window.MapModule.start({
+    userLocations: <%= @heatmap_data.html_safe %>
+});
+</script>
 
 
