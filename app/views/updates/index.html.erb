@@ -6,9 +6,7 @@
     <div id="googleMap" style="width:500px;height:380px;"></div>
     <%= render 'displayUpdates' %>
 
-    <% if logged_in? %>
-          <%= link_to 'Post Update', new_update_path, class: 'btn' %>
-    <% else %>
+    <% if logged_in? ==false  %>
           <%= link_to 'Sign In to Update', new_session_path, class: 'btn' %>
     <% end %>
 
@@ -16,6 +14,10 @@
 
     <%= f.label "Description"%> 
     <%= f.text_field :comment, {placeholder: 'comment'} %>
+    <p>
+    <%= f.label "Attach" %><br>
+    <%= f.file_field :attachment %>
+    </p>
 
     <div class="actions"><%=submit_tag 'Post Update' %></div>
     

@@ -14,6 +14,5 @@ class User < ActiveRecord::Base
 
   acts_as_liker
 
-  #has_attached_file :avatar
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "10x10>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "50x50>" }
 end

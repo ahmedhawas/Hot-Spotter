@@ -62,6 +62,6 @@ class UpdatesController < ApplicationController
 	private
 
 	def update_params
-		params.require(:update).permit(:comment,:likes)
+		params.require(:update).permit(:comment,:likes, :attachment)
 	end
 end

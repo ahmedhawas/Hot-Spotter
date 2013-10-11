@@ -8,5 +8,8 @@
       <%= link_to "Like", update_like_url(update) %>
     <% end %> 
   </br>
+  <% if update.attachment_file_size %> 
+    <%= image_tag update.attachment.url(:thumb) %></br>
+   <% end %> 
   <% end %> 
 </p>
