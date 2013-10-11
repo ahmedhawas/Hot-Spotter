@@ -1,7 +1,13 @@
 <h1>Live Updates</h1>
 
-<p><%= image_tag @user.avatar.url(:thumb) %>
-<%= link_to 'Profile Page', user_path(@current_user.id), class: 'btn' %></p>
+<p>
+<% if  @user.facebook_img %>
+  <%= image_tag @user.facebook_img.concat("?type=normal") %></br>
+<% else %>
+  <%= image_tag @user.avatar.url(:thumb) %></br>
+<% end %>
+<%= link_to 'Profile Page', user_path(@current_user.id), class: 'btn' %>
+</p>
 
     <div id="googleMap" style="width:500px;height:380px;"></div>
     <%= render 'displayUpdates' %>

@@ -15,6 +15,7 @@ class OauthsController < ApplicationController
       begin
         @user = create_from(provider)
         @user.likes=0
+        @user.facebook_img = "https://graph.facebook.com/#{@user.username}/picture"
         @user.save!
 
         # NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule

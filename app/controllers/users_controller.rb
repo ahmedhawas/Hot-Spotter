@@ -33,11 +33,12 @@ class UsersController < ApplicationController
 
   def show
     @user=current_user
+    @updates=@user.updates.order("created_at DESC")
   end
   
 
   private
 	def user_params
-		params.require(:user).permit(:username, :email, :password, :password_confirmation, :lat, :long, :avatar)
+		params.require(:user).permit(:username, :email, :password, :password_confirmation, :lat, :long, :avatar,:facebook_img)
 	end
 end

@@ -3,7 +3,7 @@ class UpdatesController < ApplicationController
 	before_filter :require_user
 
 	def index
-		@updates = Update.all
+		@updates = Update.order("created_at DESC")
 		@heatmap_data = get_heatmap_data.to_json
 		@update = @user.updates.build
 		# puts @heatmap_data 
