@@ -4,7 +4,7 @@
     <%= render 'displayUpdates' %>
 
     <% if logged_in? %>
-          <%= link_to 'Post Update', new_update_path, class: 'btn' %>
+          <%#= link_to 'Post Update', new_update_path, class: 'btn' %>
     <% else %>
           <%= link_to 'Sign In to Update', new_session_path, class: 'btn' %>
     <% end %>
