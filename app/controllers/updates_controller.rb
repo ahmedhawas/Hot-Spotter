@@ -3,7 +3,12 @@ class UpdatesController < ApplicationController
 	before_filter :require_user
 
 	def index
+
 		@updates = Update.order("created_at DESC")
+
+		# @updates = Update.all
+		@update = @user.updates.build
+
 		@heatmap_data = get_heatmap_data.to_json
 		@update = @user.updates.build
 		# puts @heatmap_data 
@@ -15,10 +20,13 @@ class UpdatesController < ApplicationController
 	    @update.long=@user.long
 	    @update.likes=0
 	    if @update.save
-	      	redirect_to updates_path, notice: "Update posted!"
+	      	# redirect_to updates_path, notice: "Update posted!"
 	    else
-	      	render :new
+	      	render :updates
 	    end
+	    respond_to do |format|
+      		format.js {render json: @updates, content_type: 'text/json' }
+   		end
 	end
 
 	def like
