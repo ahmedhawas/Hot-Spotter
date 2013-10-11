@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem "socialization"
 
+gem 'firebase'
+
 
 group :development do
   gem 'better_errors'
