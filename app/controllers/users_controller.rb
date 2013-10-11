@@ -29,12 +29,16 @@ class UsersController < ApplicationController
       		# format.html # index.html.erb
       		format.js {render json: @users, content_type: 'text/json' }
    		end
-    end
-	
+  end
 
-	private
+  def show
+    @user=current_user
+  end
+  
 
+  private
 	def user_params
 		params.require(:user).permit(:username, :email, :password, :password_confirmation, :lat, :long)
 	end
+
 end

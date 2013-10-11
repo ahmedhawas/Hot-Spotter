@@ -9,11 +9,7 @@
           <%= link_to 'Sign In to Update', new_session_path, class: 'btn' %>
     <% end %>
 
-
-    <h1>lat long</h1>
- 
-    <%=  @user.lat %>
-    <%=  @user.long %>
+<%= link_to 'Profile Page', user_path(@current_user.id), class: 'btn' %>
 
 
 
