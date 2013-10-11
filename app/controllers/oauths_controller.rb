@@ -14,6 +14,8 @@ class OauthsController < ApplicationController
     else
       begin
         @user = create_from(provider)
+        @user.likes=0
+        @user.save!
 
         # NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule
 
