@@ -6,6 +6,14 @@
   <%= image_tag @user.avatar.url(:medium) %></br>
 <% end %>
 
+<%= form_for @user do |f| %>
+   <p>
+    <%= f.label "Change Pic" %><br>
+    <%= f.file_field :avatar %>
+    <%= f.submit "Change Pic" %>
+  </p>
+<% end %>
+
 email: <%=@user.email%></br>
 Total Likes: <%=@user.likes%></br>
 Reputation:
@@ -19,3 +27,5 @@ Personal Recent Heat Map: (insert a pic of heat map?)
     </p>
   <% end %> 
 </p>
+
+<%= link_to 'Live Updates', updates_path%>

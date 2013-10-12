@@ -18,17 +18,18 @@ class UsersController < ApplicationController
 
 	def update
 		@user = current_user
+    @user.update_attributes user_params
 
-		if @user.update_attributes user_params
-			
+		if @user.save
+      respond_to do |format|
+          format.html { redirect_to user_path(params[:id]) , notice: 'Profile pic changed'}
+          format.js {render json: @users, content_type: 'text/json'}
+      end
     else
-
+      redirect_to user_path(params[:id])
     end
 
-    	respond_to do |format|
-      		# format.html # index.html.erb
-      		format.js {render json: @users, content_type: 'text/json' }
-   		end
+
   end
 
   def show

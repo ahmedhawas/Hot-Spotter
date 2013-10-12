@@ -11,6 +11,9 @@
   </br>
   <% if update.attachment_file_size %> 
     <%= image_tag update.attachment.url(:thumb) %></br>
+    <% if current_user.username == update.user.username %>
+      <p><%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %></p>
+    <% end %> 
    <% end %> 
   <% end %> 
 </p>

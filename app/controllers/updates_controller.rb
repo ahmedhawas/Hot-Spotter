@@ -29,6 +29,13 @@ class UpdatesController < ApplicationController
    		end
 	end
 
+	def destroy
+		@update = Update.find(params[:id])
+		@update.attachment = nil
+		@update.save
+		redirect_to updates_path
+	end
+
 	def like
 		@update = Update.find(params[:update_id])
 		current_user.like!(@update)
