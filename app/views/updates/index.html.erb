@@ -9,6 +9,12 @@
 <%= link_to 'Profile Page', user_path(@current_user.id), class: 'btn' %>
 </p>
 
+<!--GOOGLE MAP SEARCH NOT WORKING  -->
+<p>
+    <input id="address" type="textbox">
+    <input type="button" value="Geocode" onclick="codeAddress()">
+</p>
+<!--  -->
     <div id="googleMap" style="width:500px;height:380px;"></div>
     <%= render 'displayUpdates' %>
 
