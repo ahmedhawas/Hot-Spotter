@@ -19,26 +19,20 @@
 
 </head>
 <body>
-  <div class='top-bar'>
+<div class='top-bar'>
     <% if logged_in? %>
-             <% if  @user.facebook_img %>
+          <% if  @user.facebook_img %>
                 <%= link_to (user_path(@current_user.id)) do %>
                     <div class="profileIcon" style="display: block; background-image: url(<%= @user.facebook_img.concat("?type=large") %>);"></br></div>
                 <% end %>  
-            <% else %>
+          <% else %>
                 <%= link_to (user_path(@current_user.id)) do %>
                   <div class="profileIcon" style="display: block; background-image: url( <%= image_tag @user.avatar.url(:thumb) %>);"></br></div>
                 <% end %> 
-            <% end %>
-            
-
-            <%= link_to 'Logout', logout_path, class: 'btn' %>
-            <% else %>
-            <div class="btn btn-facebook"><i class="icon-large icon-facebook"></i>
-            <%= link_to '| Sign in with Facebook', auth_at_provider_path(:provider => :facebook) %></div></br></br>
-            <%= link_to 'Sign In', new_session_path, class: 'btn' %>
-            <%= link_to 'Sign Up', new_user_path, class: 'btn' %>
           <% end %>
+                <%= link_to 'Logout', logout_path, class: 'btn' %>
+    <% else %>
+    <% end %>
 </div>
 <div class = "container">
   	<% if flash[:notice] %>
