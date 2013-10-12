@@ -22,7 +22,7 @@ class OauthsController < ApplicationController
 
         reset_session # protect from session fixation attack
         auto_login(@user)
-        redirect_to updates_path, :notice => "Logged in from #{provider.titleize}!"
+        redirect_to updates_path, #:notice => "Logged in from #{provider.titleize}!"
       rescue
         redirect_to updates_path, :alert => "Failed to login from #{provider.titleize}!"
       end

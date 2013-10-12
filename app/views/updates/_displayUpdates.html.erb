@@ -15,13 +15,17 @@
   <% end %> 
 </p>
 
-<%= form_for @update do |f| %>
- 
-  <%= f.label "Description"%> 
-  <%= f.text_field :comment, {placeholder: 'comment'} %>
+<%= form_for @update, :method => :post do |f|  %>
 
-  <div class="actions"><%=submit_tag 'Post Update' %></div>
-  
+    <%= f.label "Description"%> 
+    <%= f.text_field :comment, {placeholder: 'comment'} %>
+    <p>
+    <%= f.label "Attach" %><br>
+    <%= f.file_field :attachment %>
+    </p>
+
+    <div class="actions"><%=submit_tag 'Post Update' %></div>
+    
 <% end %>
 
 
