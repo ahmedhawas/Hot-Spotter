@@ -2,6 +2,7 @@ window.MapModule = (function() {
   var userLocations;
 
  function displayPosition(position) {
+
       var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var options = {
         zoom: 16,
@@ -33,9 +34,7 @@ window.MapModule = (function() {
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
       });
-
-       // var heatmapData = generateRandomData();
-      
+ 
     
       var heatmapData =  _.map(userLocations, function(location){
           return new google.maps.LatLng(location.lat,location.lng)})

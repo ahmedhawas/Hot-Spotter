@@ -2,29 +2,49 @@
 <html>
 <head>
   <title>Hotspotter</title>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,900' rel='stylesheet' type='text/css'>
+
   <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA9JBz-80iyKF7JGzeikG0zHHqWdF2CLPs&sensor=true"></script>
   <script type="text/javascript"
   src="http://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
-	<% if flash[:notice] %>
-    	<div><%= flash[:notice] %></div>
-	<% end %>
-    <% if flash[:alert] %>
-      <div><%= flash[:alert] %></div>
-  <% end %>
-
-	<% if logged_in? %>
-        <%= link_to 'Logout', logout_path, class: 'btn' %>
+<div class='top-bar'>
+    <% if logged_in? %>
+          <% if  @user.facebook_img %>
+                <%= link_to (user_path(@current_user.id)) do %>
+                    <div class="profileIcon" style="display: block; background-image: url(<%= @user.facebook_img.concat("?type=large") %>);"></br></div>
+                <% end %>  
+          <% else %>
+                <%= link_to (user_path(@current_user.id)) do %>
+                  <div class="profileIcon" style="display: block; background-image: url( <%=@user.avatar.url(:medium) %>);"></br></div>
+                <% end %> 
+          <% end %>
+                <%= link_to 'Logout', logout_path, class: 'btn' %>
+    <% else %>
+    <% end %>
+</div>
+<div class = "leftMargin"> 
+  	<% if flash[:notice] %>
+      	<div><%= flash[:notice] %></div>
+  	<% end %>
+      <% if flash[:alert] %>
+        <div><%= flash[:alert] %></div>
     <% end %>
 
-	<%= yield %>
-
+	 <%= yield %>
+</div>
 </body>
 </html>

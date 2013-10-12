@@ -19,6 +19,20 @@
 </p>
 
 
+<%= form_for @update, :method => :post do |f|  %>
+
+    <%= f.label "Description"%> 
+    <%= f.text_field :comment, {placeholder: 'comment'} %>
+    <p>
+    <%= f.label "Attach" %><br>
+    <%= f.file_field :attachment %>
+    </p>
+
+    <div class="actions"><%=submit_tag 'Post Update' %></div>
+    
+<% end %>
+
+
 <form id="comment-form">
   <div id='messagesDiv'></div>
   <!-- <input type='text' id='nameInput' placeholder='Name'> -->

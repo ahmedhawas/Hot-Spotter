@@ -1,11 +1,27 @@
-<h1>Hot Spotter</h1>
 
-<% if logged_in? %>
-	
+<div class = "row">
+<div class="textFont boldText centerText bigText largeMargin">
+	<h1>Discover the Hottest Spots in Town</h1>
+</div>
+</div>
 
-<% else %>
-	<%= link_to 'Sign In', new_session_path, class: 'btn' %>
-		<%= link_to 'Sign Up', new_user_path, class: 'btn' %>
-    <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
-	<% end %>
+<div class = "row">
+ 		<div class = "centerText">
+	    	<% if logged_in? %>
+        		<%= link_to 'Logout', logout_path, class: 'btn' %>
+          	<% else %>
+    
+          	<div class="btn btn-facebook"><i class="icon-large icon-facebook"></i>
+        		<%= link_to '| Sign in with Facebook', auth_at_provider_path(:provider => :facebook) %>
+        	</div></br></br>
+        		<%= link_to 'Sign In', new_session_path, class: 'btn' %>
+        		<%= link_to 'Sign Up', new_user_path, class: 'btn' %>
+        	<% end %>
+      </div>
+</div>
+
+
+
+
+
 
