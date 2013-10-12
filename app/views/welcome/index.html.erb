@@ -10,6 +10,7 @@
 	    	<% if logged_in? %>
         		<%= link_to 'Logout', logout_path, class: 'btn' %>
           	<% else %>
+    
           	<div class="btn btn-facebook"><i class="icon-large icon-facebook"></i>
         		<%= link_to '| Sign in with Facebook', auth_at_provider_path(:provider => :facebook) %>
         	</div></br></br>

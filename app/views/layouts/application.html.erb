@@ -12,6 +12,8 @@
   <script type="text/javascript"
   src="http://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <%= stylesheet_link_tag "application", :media => "all" %>
   
   <%= javascript_include_tag "application" %>
@@ -27,14 +29,14 @@
                 <% end %>  
           <% else %>
                 <%= link_to (user_path(@current_user.id)) do %>
-                  <div class="profileIcon" style="display: block; background-image: url( <%= image_tag @user.avatar.url(:thumb) %>);"></br></div>
+                  <div class="profileIcon" style="display: block; background-image: url( <%=@user.avatar.url(:medium) %>);"></br></div>
                 <% end %> 
           <% end %>
                 <%= link_to 'Logout', logout_path, class: 'btn' %>
     <% else %>
     <% end %>
 </div>
-<div class = "container">
+<div class = "leftMargin"> 
   	<% if flash[:notice] %>
       	<div><%= flash[:notice] %></div>
   	<% end %>

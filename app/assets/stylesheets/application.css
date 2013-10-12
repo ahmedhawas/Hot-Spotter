@@ -18,7 +18,7 @@
 }
 
 body {
-	background-color:#434343;
+	background-color:#000;
 	margin: 0;
 	padding-top: 0;
 	padding-bottom: 0;
@@ -56,6 +56,8 @@ body {
 
 .largeMargin{ margin-top: 100px; margin-bottom: 65px; }
 
+.leftMargin{ margin-left: 6%;}
+
 .profileIcon{
  	width: 150px;
  	height: 150px;
@@ -68,7 +70,7 @@ body {
 	filter: none;
   -webkit-filter: grayscale(0%);
    transition:.8s;
-   z-index: -1;
+   z-index: 2;
 }
 
 .profileIconLink{
