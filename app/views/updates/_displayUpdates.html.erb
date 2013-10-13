@@ -28,13 +28,8 @@
                 <%=update.likes%>
             </div>
         </div>
-    </div>
-
-
-   
+    </div>   
 <% end %> 
-
-<%=@firebase_updates%>
       
 <!-- Form that calls create  -->
 <%= form_for @update, :method => :post do |f|  %>
@@ -81,9 +76,9 @@
   // Add a callback that is triggered for each chat message.
   messagesRef.limit(10).on('child_added', function (snapshot) {
     var message = snapshot.val();
-    $('<div/>').text(message.text + ' at ' + message.created_at).prepend($('<em/>')
-      .text(message.username+': ')).appendTo($('#messagesDiv'));
-    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    $('<div/>').text(message.comment + ' at ' + message.created_at).prepend($('<em/>')
+      .text(message.username+': ')).appendTo($('.updateContainer'));
+    $('.updateContainer')[0].scrollTop = $('.updateContainer')[0].scrollHeight;
   });
 </script>
 
