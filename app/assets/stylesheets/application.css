@@ -58,6 +58,16 @@ body {
 
 .leftMargin{ margin-left: 6%;}
 
+.colLeft30{
+	float: left;
+	width: 30%;
+}
+
+.colRight70{
+	float: right;
+	width: 70%;
+}
+
 .profileIcon{
  	width: 150px;
  	height: 150px;
@@ -79,7 +89,8 @@ body {
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	border-radius: 50%;
-	background-color: rgba(0,0,0,0.08)
+	background-color: rgba(0,0,0,0.08);
+	z-index: 3;
 }
 
 .profileIcon:hover{
@@ -87,8 +98,7 @@ body {
   	-webkit-filter: grayscale(80%);
 }
 
-
-
+.googleMap{position: absolute; top: 0; left: 0; right: 0; bottom:0; z-index: -2; overflow: hidden; }
 
 .top-bar {
 	background-color: rgba(255,255,255,0.31);
@@ -122,4 +132,8 @@ z-index: 2;
 
 .title-test {
 	margin: 0 auto;
+}
+
+.titleBox{
+	width: 30%;
 }
