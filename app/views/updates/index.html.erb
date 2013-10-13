@@ -1,34 +1,21 @@
-<h1>Live Updates</h1>
-
-<!--GOOGLE MAP SEARCH NOT WORKING  -->
-<p>
-    <input id="address" type="textbox">
-    <input type="button" value="Geocode" onclick="codeAddress()">
-</p>
-<!--  -->
-    <div id="googleMap" style="width:500px;height:380px;"></div>
-    <%= render 'displayUpdates' %>
-
-
-
-
 <div class= "titleBox"><h1>Live Updates</h1></div>
- 
-    <div class="colLeft30">
-
-      <%= render 'displayUpdates' %>
-    </div>
-    <div class="colRight70">
-      <div id="googleMap" style="width:500px;height:380px;"></div>
-    </div>
-
-
-
+        <div class="colLeft30">
+            <%= render 'displayUpdates' %>
+        </div>
+        <div class="colRight70">
+            <!--GOOGLE MAP SEARCH NOT WORKING  -->
+             <p>
+                <input id="address" type="textbox">
+                <input type="button" value="Geocode" onclick="codeAddress()">
+            </p><!--  -->
+            <div id="googleMap" style="width:500px;height:380px;"></div>
+        </div>
     <% if logged_in? %>
           <%#= link_to 'Post Update', new_update_path, class: 'btn' %>
     <% else %>
           <%= link_to 'Sign In to Update', new_session_path, class: 'btn' %>
     <% end %>
+    
 <script>
 window.MapModule.start({
     userLocations: <%= @heatmap_data.html_safe %>
