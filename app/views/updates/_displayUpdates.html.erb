@@ -1,32 +1,29 @@
 
-<p>
-  <% @updates.each do |update| %>
+
+<% @updates.each do |update| %>
     <%= update.user.username%> says: <%= update.comment %> at <%= update.created_at.localtime.strftime('%I:%M%p')%> from <%= update.lat%>, <%= update.long%> 
     <%=update.likes%>
     <% if current_user.likes?(update) && current_user.username != update.user.username%>
       <%= link_to "Unlike", update_unlike_url(update) %>
     <% elsif !current_user.likes?(update) && current_user.username != update.user.username%>  †
       <%= link_to "Like", update_like_url(update) %>
-    <% end %> 
-  </br>
-  <% if update.attachment_file_size %> 
-    <%= image_tag update.attachment.url(:thumb) %></br>
-    <% if current_user.username == update.user.username %>
-      <p><%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %></p>
-    <% end %> 
-   <% end %>
-  <% end %> 
-</p>
+    <% end %> </br>
+    <% if update.attachment_file_size %> 
+        <%= image_tag update.attachment.url(:thumb) %></br>
+        <% if current_user.username == update.user.username %>
+            <p><%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %></p>
+        <% end %> 
+    <% end %>
+<% end %> 
+
 
 
 <%= form_for @update, :method => :post do |f|  %>
 
     <%= f.label "Description"%> 
     <%= f.text_field :comment, {placeholder: 'comment'} %>
-    <p>
     <%= f.label "Attach" %><br>
     <%= f.file_field :attachment %>
-    </p>
 
     <div class="actions"><%=submit_tag 'Post Update' %></div>
     

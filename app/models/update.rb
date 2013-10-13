@@ -6,7 +6,7 @@ class Update < ActiveRecord::Base
   Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
 
   
-  has_attached_file :attachment, :styles => { :medium => "300x300>", :thumb => "150x150>" }
+  has_attached_file :attachment, :styles => { :medium => "300x300>", :small => "150x150>", :thumb => "50x50>" }
 
   has_and_belongs_to_many :categories, :join_table => 'categories_updates'
 
