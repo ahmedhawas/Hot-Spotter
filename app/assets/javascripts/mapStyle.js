@@ -1,4 +1,4 @@
-var styles = [
+styles = [
 	{
 		featureType: 'water',
 		elementType: 'all',
@@ -18,14 +18,14 @@ var styles = [
 			{ visibility: 'on' }
 		]
 	},{
-		featureType: 'road.highway',
-		elementType: 'all',
-		stylers: [
-			{ hue: '#888888' },
-			{ saturation: -100 },
-			{ lightness: -17 },
-			{ visibility: 'on' }
-		]
+		// featureType: 'road.highway',
+		// elementType: 'all',
+		// stylers: [
+		// 	{ hue: '#888888' },
+		// 	{ saturation: -100 },
+		// 	{ lightness: -17 },
+		// 	{ visibility: 'on' }
+		// ]
 	},{
 		featureType: 'landscape',
 		elementType: 'all',
@@ -46,15 +46,3 @@ var styles = [
 		]
 	}
 ];
-var options = {
-	mapTypeControlOptions: {
-		mapTypeIds: [ 'Styled']
-	},
-	center: new google.maps.LatLng(43.651118278698014, -79.37737693786619),
-	zoom: 14,
-	mapTypeId: 'Styled'
-};
-var div = document.getElementById('map');
-var map = new google.maps.Map(div, options);
-var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
-map.mapTypes.set('Styled', styledMapType);
