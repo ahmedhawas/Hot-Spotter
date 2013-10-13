@@ -13,6 +13,7 @@ class UpdatesController < ApplicationController
 		@update = @user.updates.build
 		# puts @heatmap_data 
 
+		Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
 		@firebase_updates = Firebase.get("updates")
 	end
 

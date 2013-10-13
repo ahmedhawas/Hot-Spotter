@@ -22,7 +22,7 @@ gem "paperclip", "~> 3.0"
 
 gem 'firebase'
 
-gem 'bootstrap-sass', '~> 2.2.2.0'
+# gem 'bootstrap-sass', '~> 2.2.2.0'
 
 
 group :development do
