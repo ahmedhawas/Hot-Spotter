@@ -21,6 +21,7 @@
 
 </head>
 <body>
+<div class="containerFull">
 <div class='top-bar'>
     <% if logged_in? %>
           <% if  @user.facebook_img %>
@@ -45,6 +46,7 @@
     <% end %>
 
 	 <%= yield %>
+</div>
 </div>
 </body>
 </html>
