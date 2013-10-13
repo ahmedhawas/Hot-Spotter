@@ -4,10 +4,15 @@ window.MapModule = (function() {
  function displayPosition(position) {
 
       var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      resize();
       var options = {
+        mapTypeControlOptions: {
+        mapTypeIds: [ 'Styled']
+        },
         zoom: 16,
         center: pos,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        // mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: 'Styled'
       };
       var testingLat = parseFloat(position.coords.latitude);
       var testingLng = parseFloat(position.coords.longitude);
@@ -34,6 +39,8 @@ window.MapModule = (function() {
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map,marker);
       });
+      var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
+      map.mapTypes.set('Styled', styledMapType);
  
     
       var heatmapData =  _.map(userLocations, function(location){
@@ -71,6 +78,8 @@ window.MapModule = (function() {
       }
       return heatData;
     }
+
+    
 
   return {
     start: function(opts) {
