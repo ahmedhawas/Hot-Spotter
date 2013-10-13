@@ -12,7 +12,8 @@
   <script type="text/javascript"
   src="http://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.gmap.min.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <%= stylesheet_link_tag "application", :media => "all" %>
   
@@ -26,11 +27,11 @@
     <% if logged_in? %>
           <% if  @user.facebook_img %>
                 <%= link_to (user_path(@current_user.id)) do %>
-                    <div class="profileIcon" style="display: block; background-image: url(<%= @user.facebook_img.concat("?type=large") %>);"></br></div>
+                    <div class="profileIcon linkText" style="display: block; background-image: url(<%= @user.facebook_img.concat("?type=large") %>);"></br></div>
                 <% end %>  
           <% else %>
                 <%= link_to (user_path(@current_user.id)) do %>
-                  <div class="profileIcon" style="display: block; background-image: url( <%=@user.avatar.url(:medium) %>);"></br></div>
+                  <div class="profileIcon linkText" style="display: block; background-image: url( <%=@user.avatar.url(:medium) %>);"></br></div>
                 <% end %> 
           <% end %>
                 
@@ -46,6 +47,7 @@
     <% end %>
 
 	 <%= yield %>
+  
 </div>
 </div>
 </body>
