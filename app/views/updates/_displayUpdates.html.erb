@@ -1,19 +1,39 @@
 
 
 <% @updates.each do |update| %>
-    <%= update.user.username%> says: <%= update.comment %> at <%= update.created_at.localtime.strftime('%I:%M%p')%> from <%= update.lat%>, <%= update.long%> 
-    <%=update.likes%>
-    <% if current_user.likes?(update) && current_user.username != update.user.username%>
-      <%= link_to "Unlike", update_unlike_url(update) %>
-    <% elsif !current_user.likes?(update) && current_user.username != update.user.username%>  †
-      <%= link_to "Like", update_like_url(update) %>
-    <% end %> </br>
-    <% if update.attachment_file_size %> 
-        <%= image_tag update.attachment.url(:thumb) %></br>
-        <% if current_user.username == update.user.username %>
-            <p><%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %></p>
-        <% end %> 
-    <% end %>
+    <div class = "updateContainer">
+        <div class = "updateImage">
+        <% if update.attachment_file_size %> 
+            <%= image_tag update.attachment.url(:thumb) %>
+            <% if current_user.username == update.user.username %>
+                <%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %>
+            <% end %> 
+        <% end %>
+        </div>
+        <div class = "updateComment textFont normalText darkText rightText smallestText">
+            <div class="updateText">
+                <%= update.user.username%></br> 
+                <div class = "boldText darkText rightText smallestText">
+                <%= update.comment %></div>
+                <%= update.created_at.localtime.strftime('%I:%M%p')%> 
+                <%#= update.lat%> <%#= update.long%> 
+                
+            </div>
+            <div class= "updateLike">
+                <% if current_user.likes?(update) %>
+                    <%= link_to (update_unlike_url(update)) do %>
+                        <div class="my-like" title="Like"></div><%end%>
+                <% elsif !current_user.likes?(update) %>
+                    <%= link_to (update_like_url(update)) do %>
+                    <div class="my-unlike" title="Like"></div><% end %>
+                <% end %>
+                <%=update.likes%>
+            </div>
+        </div>
+    </div>
+
+
+   
 <% end %> 
 
 
