@@ -3,9 +3,9 @@
   <% @updates.each do |update| %>
     <%= update.user.username%> says: <%= update.comment %> at <%= update.created_at.localtime.strftime('%I:%M%p')%> from <%= update.lat%>, <%= update.long%> 
     <%=update.likes%>
-    <% if current_user.likes?(update) && current_user.username != update.user.username%>
+    <% if current_user.likes?(update)%>
       <%= link_to "Unlike", update_unlike_url(update) %>
-    <% elsif !current_user.likes?(update) && current_user.username != update.user.username%>  †
+    <% elsif !current_user.likes?(update)%>  †
       <%= link_to "Like", update_like_url(update) %>
     <% end %> 
   </br>
@@ -18,7 +18,9 @@
   <% end %> 
 </p>
 
-
+<%=@firebase_updates%>
+      
+<!-- Form that calls create  -->
 <%= form_for @update, :method => :post do |f|  %>
 
     <%= f.label "Description"%> 
@@ -31,7 +33,7 @@
     <div class="actions"><%=submit_tag 'Post Update' %></div>
     
 <% end %>
-
+<!--  -->
 
 <form id="comment-form">
   <div id='messagesDiv'></div>
