@@ -1,23 +1,3 @@
-
-<p>
-  <% @updates.each do |update| %>
-    <%= update.user.username%> says: <%= update.comment %> at <%= update.created_at.localtime.strftime('%I:%M%p')%> from <%= update.lat%>, <%= update.long%> 
-    <%=update.likes%>
-    <% if current_user.likes?(update)%>
-      <%= link_to "Unlike", update_unlike_url(update) %>
-    <% elsif !current_user.likes?(update)%>  †
-      <%= link_to "Like", update_like_url(update) %>
-    <% end %> 
-  </br>
-  <% if update.attachment_file_size %> 
-    <%= image_tag update.attachment.url(:thumb) %></br>
-    <% if current_user.username == update.user.username %>
-      <p><%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %></p>
-    <% end %> 
-   <% end %>
-  <% end %> 
-</p>
-
 <% @updates.each do |update| %>
     <div class = "updateContainer">
         <div class = "updateImage">
