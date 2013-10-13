@@ -15,4 +15,41 @@ class User < ActiveRecord::Base
   acts_as_liker
 
   has_attached_file :avatar, :styles => { :small => "150x150>", :medium => "300x300>", :thumb => "50x50>" }
+  validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
+
+  def reputation
+    if self.likes <= 2
+      return "Gotta put Happening Updates"
+    elsif self.likes <= 10
+      return "Moderate"
+    elsif self.likes <= 50
+      return "Location Expert"
+    else
+      return "Guru of Hip Locations"
+    end   
+  end
+
+  def streak
+    streak =0
+    ordered_updates = self.updates.order("created_at DESC")
+    if self.updates == true
+      if ordered_updates[0].created_at.to_date == Time.now.to_date 
+        streak+=1
+        for i in 1..self.updates.length-1
+          if ordered_updates[i].created_at.to_date - 1.day == Time.now - 1.day
+            streak+=1
+          else
+            if streak == 1
+              return "#{streak} day"
+            else
+              return "#{streak} days!"
+            end
+          end
+        end
+      end 
+    else
+      return "#{streak} days" 
+    end
+  end
+
 end

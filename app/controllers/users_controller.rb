@@ -23,13 +23,11 @@ class UsersController < ApplicationController
 		if @user.save
       respond_to do |format|
           format.html { redirect_to user_path(params[:id]) , notice: 'Profile pic changed'}
-          format.js {render json: @users, content_type: 'text/json'}
+          format.js {render json: @users, content_type: 'text/json'}   
       end
     else
       redirect_to user_path(params[:id])
-    end
-
-
+      end
   end
 
   def show

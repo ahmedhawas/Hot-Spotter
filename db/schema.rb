@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011173458) do
+ActiveRecord::Schema.define(version: 20131013053827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20131011173458) do
     t.string   "uid",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "update_type"
+    t.integer  "update_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories_updates", force: true do |t|
+    t.integer "category_id"
+    t.integer "update_id"
   end
 
   create_table "follows", force: true do |t|
@@ -69,6 +81,7 @@ ActiveRecord::Schema.define(version: 20131011173458) do
     t.datetime "attachment_updated_at"
     t.float    "lat"
     t.float    "long"
+    t.integer  "category_id"
   end
 
   create_table "users", force: true do |t|
