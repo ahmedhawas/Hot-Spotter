@@ -1,12 +1,12 @@
-<h1>Live Updates</h1>
-  <div class='row'>
-    <div class="col-md-3">
+<div class= "titleBox"><h1>Live Updates</h1></div>
+  <!-- <div class='row'> -->
+    <div class="colLeft30">
       <%= render 'displayUpdates' %>
     </div>
-    <div class="col-md-9">
+    <div class="colRight70">
       <div id="googleMap" style="width:500px;height:380px;"></div>
     </div>
-  </div> 
+  <!-- </div>  -->
 
     <% if logged_in? %>
           <%#= link_to 'Post Update', new_update_path, class: 'btn' %>
