@@ -5,3 +5,30 @@
 .googleMap{position: absolute; top: 0; left: 0; right: 0; bottom:0; z-index: -2; overflow: hidden; 
 			border-radius: 15px;
 }
+
+#searchBox{
+	position: absolute;
+	margin-top: 2%;
+	margin-left: 8%;
+	z-index: 5;
+}
+
+#addressInput{
+	-webkit-border-radius: 34px;
+	padding-left: 20px;
+	padding-right: 5px;
+	width: 300px;
+	height: 30px;
+	border-radius: 34px;
+	-webkit-box-shadow: 0px 0px 18px #000000;
+	box-shadow: 0px 0px 18px #000000;
+	background-image: -moz-linear-gradient(top, #ffffff, #969687);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#ffffff), to(#969687));
+	background-image: -webkit-linear-gradient(top, #ffffff, #969687);
+	background-image: linear-gradient(top, #ffffff, #969687);
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	/*Use "background-clip: padding-box" when using rounded corners to avoid the gradient bleeding through the corners*/
+	opacity: 0.8;
+}
+

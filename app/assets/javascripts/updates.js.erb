@@ -16,7 +16,6 @@ window.MapModule = (function() {
       };
       var testingLat = parseFloat(position.coords.latitude);
       var testingLng = parseFloat(position.coords.longitude);
-      console.log(testingLat);
 
     $.ajax({
       type: 'PATCH',
@@ -100,16 +99,15 @@ window.MapModule = (function() {
   };
 }());
 
-
 function codeAddress() {
-geocoder = new google.maps.Geocoder();
-var address = document.getElementById('address').value;
-geocoder.geocode( { 'address': address}, function(results, status) {
-  if (status == google.maps.GeocoderStatus.OK) {
-    map.setCenter(results[0].geometry.location);
-  } else {
-    alert('Geocode was not successful for the following reason: ' + status);
-  }
-});
+    geocoder = new google.maps.Geocoder();
+    var address = document.getElementById('address').value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
 }
 

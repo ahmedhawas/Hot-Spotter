@@ -1,12 +1,12 @@
-<div class= "titleBox textFont thinText bigText">What's Sizzlin</div>       <div class="colLeft30">
-            <%= render 'displayUpdates' %>
+<div class= "titleBox textFont thinText bigText">What's Sizzlin</div>      
+     <div class="colLeft30">
+        <%= render 'displayUpdates' %>
+    </div>
+    <div class="colRight70">
+        <div id="searchBox">
+            <input id="addressInput" type="textbox" class= "textFont darkText boldText">
+            <input type="button" class = "arrow_box" onclick="codeAddress()">
         </div>
-        <div class="colRight70">
-        <!--GOOGLE MAP SEARCH NOT WORKING  -->
-         <p>
-            <input id="address" type="textbox">
-            <input type="button" value="Find Address" onclick="codeAddress()">
-        </p><!--  -->
         <div id="googleMap" style="width:500px;height:380px;"></div>
     </div>
     <% if logged_in? %>
