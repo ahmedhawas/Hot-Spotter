@@ -26,7 +26,7 @@ window.MapModule = (function() {
       data: { user: { lat: position.coords.latitude, long: position.coords.longitude}}
     });
 
-      var map = new google.maps.Map(document.getElementById("googleMap"), options);
+      map = new google.maps.Map(document.getElementById("googleMap"), options);
       var marker = new google.maps.Marker({
         position: pos,
         map: map,
@@ -79,23 +79,6 @@ window.MapModule = (function() {
       return heatData;
     }
 
-    function codeAddress() {
-    var address = document.getElementById('address').value;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-    }
-
-  
-
   return {
     start: function(opts) {
       userLocations = opts.userLocations;
@@ -118,5 +101,15 @@ window.MapModule = (function() {
 }());
 
 
+function codeAddress() {
+geocoder = new google.maps.Geocoder();
+var address = document.getElementById('address').value;
+geocoder.geocode( { 'address': address}, function(results, status) {
+  if (status == google.maps.GeocoderStatus.OK) {
+    map.setCenter(results[0].geometry.location);
+  } else {
+    alert('Geocode was not successful for the following reason: ' + status);
+  }
+});
+}
 
-    

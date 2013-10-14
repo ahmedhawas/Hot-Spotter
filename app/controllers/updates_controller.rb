@@ -12,23 +12,32 @@ class UpdatesController < ApplicationController
 		@heatmap_data = get_heatmap_data.to_json
 		@update = @user.updates.build
 		# puts @heatmap_data 
+
+		Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+		@firebase_updates = Firebase.get("updates")
 	end
 
 	def create
 			@category = Category.new
+			@update = @user.updates.build update_params
 
-	    @update = @user.updates.build update_params
 	    @update.lat=@user.lat
 	    @update.long=@user.long
 	    @update.likes=0
+
+	    Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+			response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long ,created_at:@update.created_at})
+
 	    if @update.save
-	      	# redirect_to updates_path, notice: "Update posted!"
+	    	  respond_to do |format|
+	    	  	format.html {redirect_to updates_path} 
+      			format.js {render json: @updates, content_type: 'text/json' }
+   				end
+	   	  	# redirect_to updates_path, notice: "Update posted!"
 	    else
 	      	render :updates
 	    end
-	    respond_to do |format|
-      		format.js {render json: @updates, content_type: 'text/json' }
-   		end
+	  
 	end
 
 	def destroy

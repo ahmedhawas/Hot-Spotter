@@ -1,16 +1,16 @@
 
 <div class = "outerUpdateContainer">
-    <% @updates.each do |update| %>
-        <div class = "updateContainer">   
-            <div class = "updateImage">
-            <% if update.attachment_file_size %> 
-                <%= image_tag update.attachment.url(:thumb) %>
-                <% if current_user.username == update.user.username %>
-                    <%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %>
-                <% end %> 
-            <% end %>
-            </div>
-            <div class = "updateComment textFont normalText darkText rightText smallestText">
+<% @updates.each do |update| %>
+    <div class = "updateContainer">
+        <div class = "updateImage">
+        <% if update.attachment_file_size %> 
+            <%= image_tag update.attachment.url(:thumb) %>
+            <% if current_user.username == update.user.username %>
+                <%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %>
+            <% end %> 
+        <% end %>
+        </div>
+        <div class = "updateComment textFont normalText darkText rightText smallestText">
                 <div class="updateText">
                     <%= update.user.username%></br> 
                     <div class = "boldText darkText rightText smallestText">
@@ -33,9 +33,10 @@
         </div>
     <% end %> 
 </div>
+  
 
-
-
+      
+<!-- Form that calls create  -->
 
 <%= form_for @update, :method => :post do |f|  %>
 
@@ -47,7 +48,7 @@
     <div class="actions"><%=submit_tag 'Post Update' %></div>
     
 <% end %>
-
+<!--  -->
 
 <form id="comment-form">
   <div id='messagesDiv'></div>
@@ -81,9 +82,9 @@
   // Add a callback that is triggered for each chat message.
   messagesRef.limit(10).on('child_added', function (snapshot) {
     var message = snapshot.val();
-    $('<div/>').text(message.text + ' at ' + message.created_at).prepend($('<em/>')
-      .text(message.username+': ')).appendTo($('#messagesDiv'));
-    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    $('<div/>').text(message.comment + ' at ' + message.created_at).prepend($('<em/>')
+      .text(message.username+': ')).appendTo($('.updateContainer'));
+    $('.updateContainer')[0].scrollTop = $('.updateContainer')[0].scrollHeight;
   });
 </script>
 
