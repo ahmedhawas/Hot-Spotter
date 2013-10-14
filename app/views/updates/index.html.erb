@@ -1,23 +1,15 @@
 
 <div class= "titleBox textFont thinText bigText">What's Sizzlin</div>
 
+    <div class="colLeft30">
+        <%= render 'displayUpdates' %>
+    </div>
+    <div class="colRight70">
+            <input id="address" type="textbox">
+            <input type="button" value="Find Address" onclick="codeAddress()">
 
-<script type="text/javascript" src="updates.js.erb" language="javascript"></script>
-
-        <div class="colLeft30">
-            <%= render 'displayUpdates' %>
-        </div>
-        <div class="colRight70">
-            <!--GOOGLE MAP SEARCH NOT WORKING  -->
-
-                <!-- <input id="address" type="textbox">
-                <input type="button" value="Geocode" onclick="codeAddress()"> -->
-
-                <input id="address" type="textbox">
-                <input type="button" value="Find Address" onclick="codeAddress()">
-
-            <div id="googleMap" style="width:500px;height:380px;"></div>
-        </div>
+        <div id="googleMap" style="width:500px;height:380px;"></div>
+    </div>
     <% if logged_in? %>
           <%#= link_to 'Post Update', new_update_path, class: 'btn' %>
     <% else %>
