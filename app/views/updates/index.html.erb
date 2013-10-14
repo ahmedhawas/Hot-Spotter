@@ -1,4 +1,9 @@
+<head>
+<script type="text/javascript" src="updates.js.erb" language="javascript"></script>
+</head>
+
 <div class= "titleBox"><h1>Live Updates</h1></div>
+
         <div class="colLeft30">
             <%= render 'displayUpdates' %>
         </div>
@@ -6,7 +11,7 @@
             <!--GOOGLE MAP SEARCH NOT WORKING  -->
              <p>
                 <input id="address" type="textbox">
-                <input type="button" value="Geocode" onclick="codeAddress()">
+                <input type="button" value="Find Address" onclick="codeAddress()">
             </p><!--  -->
             <div id="googleMap" style="width:500px;height:380px;"></div>
         </div>
