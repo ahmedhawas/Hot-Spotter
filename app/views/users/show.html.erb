@@ -29,9 +29,15 @@ Personal Recent Heat Map: (insert a pic of heat map?)
   <% end %> 
 </p>
 
-
 <%= link_to 'Live Updates', updates_path, class: "actions"%>
-
-
 <%= link_to 'Logout', logout_path, class: 'btn' %>
 
+<div class="colRight70">
+ <div id="googleMap" style="width:500px;height:380px;"></div>
+</div>
+
+<script>
+window.PersonalMapModule.start({
+    userUpdates: <%= @updates_data.html_safe %>
+});
+</script>

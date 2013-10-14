@@ -1,24 +1,25 @@
 
 <div class = "row">
-<div class="textFont boldText centerText bigText largeMargin">
-	<h1>Discover the Hottest Spots in Town</h1>
+<div class="textFont normalText centerText biggerText largeMargin">
+	Discover the Hottest Spots in Town
 </div>
 </div>
 
-<div class = "row">
- 		<div class = "centerText">
-	    	<% if logged_in? %>
-        		<%= link_to 'Logout', logout_path, class: 'btn' %>
-          	<% else %>
-    
-          	<div class="btn btn-facebook"><i class="icon-large icon-facebook"></i>
-        		<%= link_to '| Sign in with Facebook', auth_at_provider_path(:provider => :facebook) %>
-        	</div></br></br>
-        		<%= link_to 'Sign In', new_session_path, class: 'btn' %>
-        		<%= link_to 'Sign Up', new_user_path, class: 'btn' %>
-        	<% end %>
-      </div>
+<div class = "centerText">
+	<% if logged_in? %>
+  		<%= link_to 'Logout', logout_path, class: 'btn' %>
+    	<% else %>
+
+    	<div class="btn btn-facebook icon-large icon-facebook">
+  		<%= link_to '| Sign in with Facebook', auth_at_provider_path(:provider => :facebook), class: 'textFont linkText smallText' %>
+  	</div></br></br>
+  		  <%= link_to 'Sign In', new_session_path, class: 'textFont linkText smallText' %> &nbsp;&nbsp;&nbsp;
+  		  <%= link_to 'Sign Up', new_user_path, class: 'textFont linkText smallText' %>
+    <% end %>
 </div>
+
+<script>$('.centerText').hide();</script>
+<script>$('.centerText').delay(500).fadeIn(2000);</script>
 
 
 

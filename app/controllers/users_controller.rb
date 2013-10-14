@@ -33,8 +33,14 @@ class UsersController < ApplicationController
   def show
     @user=current_user
     @updates=@user.updates.order("created_at DESC")
+
+    @updates_data = get_updates_data.to_json
   end
-  
+
+  def get_updates_data
+    updates=@user.updates.order("created_at DESC").first(5)
+    updates.map { |update| {:comment => update.comment, :lat => update.lat, :lng => update.long} }
+  end
 
   private
 	def user_params

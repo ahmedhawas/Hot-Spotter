@@ -1,15 +1,13 @@
-<div class= "titleBox"><h1>Live Updates</h1></div>
-
-        <div class="colLeft30">
-            <%= render 'displayUpdates' %>
-        </div>
+<div class= "titleBox textFont thinText bigText">What's Sizzlin</div>      
+     <div class="colLeft30">
+        <%= render 'displayUpdates' %>
+    </div>
         <div class="colRight70">
-            <!--GOOGLE MAP SEARCH NOT WORKING  -->
-             <p>
-                <input id="address" type="textbox">
-                <input type="button" value="Find Address" onclick="codeAddress()">
-            </p><!--  -->
-            <div id="googleMap" style="width:500px;height:380px;"></div>
+         <p>
+            <input id="address" type="textbox">
+            <input type="button" value="Find Address" onclick="codeAddress()">
+        </p>
+        <div id="googleMap" style="width:500px;height:380px;"></div>
         </div>
     <% if logged_in? %>
           <%#= link_to 'Post Update', new_update_path, class: 'btn' %>

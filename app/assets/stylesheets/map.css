@@ -1,0 +1,7 @@
+#responsive_map {height: 1080px; width: 100%;}
+#responsive_map div {-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;}
+.gm-style-iw {max-width: none !important; min-width: none !important; max-height: none !important; min-height: none !important; overflow-y: hidden !important; overflow-x: hidden !important; line-height: normal !important; padding: 5px !important; }
+
+.googleMap{position: absolute; top: 0; left: 0; right: 0; bottom:0; z-index: -2; overflow: hidden; 
+			border-radius: 15px;
+}

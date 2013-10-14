@@ -52,7 +52,6 @@ window.MapModule = (function() {
       heatmap.setMap(map);
     }
 
-
     function displayError(error) {
       var errors = {
         1: 'Permission denied',
@@ -61,7 +60,6 @@ window.MapModule = (function() {
       };
       alert("Error: " + errors[error.code]);
     }
-
 
     function getRandomInRange(from, to, fixed) {
       return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
@@ -99,16 +97,3 @@ window.MapModule = (function() {
     }
   };
 }());
-
-function codeAddress() {
-geocoder = new google.maps.Geocoder();
-var address = document.getElementById('address').value;
-geocoder.geocode( { 'address': address}, function(results, status) {
-  if (status == google.maps.GeocoderStatus.OK) {
-    map.setCenter(results[0].geometry.location);
-  } else {
-    alert('Geocode was not successful for the following reason: ' + status);
-  }
-});
-}
-

@@ -1,0 +1,97 @@
+window.PersonalMapModule = (function() {
+  var userUpdates;
+
+  function initialize() { 
+
+    var mapOptions = {
+      mapTypeControlOptions: {
+        mapTypeIds: [ 'Styled']
+      },
+      center: new google.maps.LatLng(-25.363882, 131.044922),
+      zoom: 2,
+      mapTypeId: 'Styled'
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"),
+        mapOptions);
+
+     var UpdatesData =  _.map(userUpdates, function(location){
+    return new google.maps.LatLng(location.lat,location.lng)})
+
+    var marker1 = new google.maps.Marker({
+      position: UpdatesData[0],
+      map: map,
+      title:"1"
+    });
+    var contentString = " ";
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    google.maps.event.addListener(marker1, 'click', function() {
+        infowindow.open(map,marker1);
+    });
+
+    var marker2 = new google.maps.Marker({
+      position: UpdatesData[1],
+      map: map,
+      title:"1"
+    });
+    var contentString = " ";
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    google.maps.event.addListener(marker2, 'click', function() {
+        infowindow.open(map,marker2);
+    });
+
+    var marker3 = new google.maps.Marker({
+      position: UpdatesData[2],
+      map: map,
+      title:"1"
+    });
+    var contentString = " ";
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    google.maps.event.addListener(marker3, 'click', function() {
+        infowindow.open(map,marker3);
+    });
+
+    var marker4 = new google.maps.Marker({
+      position: UpdatesData[3],
+      map: map,
+      title:"1"
+    });
+    var contentString = " ";
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    google.maps.event.addListener(marker4, 'click', function() {
+        infowindow.open(map,marker4);
+    });
+
+
+    var marker5 = new google.maps.Marker({
+      position: UpdatesData[4],
+      map: map,
+      title:"1"
+    });
+    var contentString = " ";
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    google.maps.event.addListener(marker5, 'click', function() {
+        infowindow.open(map,marker5);
+    });
+
+    var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
+    map.mapTypes.set('Styled', styledMapType);
+    resize();
+  }
+
+    return {
+    start: function(opts) {
+      userUpdates = opts.userUpdates;
+      google.maps.event.addDomListener(window, 'load', initialize);
+    }
+  };
+}());
