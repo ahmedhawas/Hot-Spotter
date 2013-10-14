@@ -1,22 +1,93 @@
-<div class= "titleBox textFont thinText bigText">What's Sizzlin</div>      
-     <div class="colLeft30">
-        <%= render 'displayUpdates' %>
+<div class= "row textFont thinText bigText">
+    <div class='colLeft30'>
+      <a href="#" id="sizzleButton"> What's Sizzlin </a> 
     </div>
-    <div class="colRight70">
-        <div id="searchBox">
-            <input id="addressInput" type="textbox" class= "textFont darkText boldText">
-            <input type="button" class = "arrow_box" onclick="codeAddress()">
-        </div>
-        <div id="googleMap" style="width:500px;height:380px;"></div>
+    <div class='colRight70'>
     </div>
-    <% if logged_in? %>
-          <%#= link_to 'Post Update', new_update_path, class: 'btn' %>
-    <% else %>
-          <%= link_to 'Sign In to Update', new_session_path, class: 'btn' %>
-    <% end %>
+</div>      
+<div class="colLeft30">
+    <%= render 'displayUpdates' %>
+</div>
+<div class="colRight70">
+    <div id="searchBox">
+        <input id="addressInput" type="textbox" class= "textFont darkText boldText">
+        <input type="button" class = "arrow_box" onclick="codeAddress()">
+    </div>
+    <div id="googleMap" style="width:500px;height:380px;"></div>
+</div>
+<% if logged_in? %>
+      <%#= link_to 'Post Update', new_update_path, class: 'btn' %>
+<% else %>
+      <%= link_to 'Sign In to Update', new_session_path, class: 'btn' %>
+<% end %>
     
+<a class="modalLink" href="#">Click Me</a>
+<div class="overlay"></div>
+<div class="modal">
+  <a href="#" class="closeBtn">Close Me</a>
+  <%= form_for @update, :method => :post do |f|  %>
+
+      
+      <%= f.text_field :comment, {id: 'commentBox'} %></br>
+      <%= f.file_field :attachment, {id: 'attachPhoto'} %>
+
+      <div class="actions"><%=submit_tag 'Post Update', {id: 'submitPost'} %></div>
+  <% end %>   
+</div>
+
+<script type="text/javascript">
+$('#sizzleButton').modal({
+
+trigger: '#sizzleButton',
+
+olay:'div.overlay',
+
+modals:'div#newSizzle',
+
+animationEffect: 'slidedown',
+
+animationSpeed: 400,
+
+moveModalSpeed: 'slow',
+
+background: '00c2ff',
+
+opacity: 0.8,
+
+openOnLoad: false,
+
+docClose: true,
+
+closeByEscape: true,
+
+moveOnScroll: true,
+
+resizeWindow: true,
+
+video:'http://player.vimeo.com/video/9641036?color=eb5a3d',
+
+close:'.closeBtn'
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
 window.MapModule.start({
     userLocations: <%= @heatmap_data.html_safe %>
 });
 </script>
+

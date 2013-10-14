@@ -6,6 +6,31 @@
 	
 }
 
+#commentBox{
+	width: 400px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 50px;
+	min-height: 100px;
+	border-radius: 15px;
+}
+
+#submitPost{
+	float: right;
+	margin-top: 10px;
+	margin-right: 50px;
+}
+
+#attachPhoto{
+	float: left;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+
+.closeBtn{
+	float: right;
+}
+
 .outerUpdateContainer{
 	border: solid 2px rgba(70, 106, 139, 0.2);
 	border-radius: 8px;

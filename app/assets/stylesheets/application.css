@@ -85,6 +85,11 @@ body {
 	border-radius: 15px;
 }
 
+.row{
+	width: 100%;
+	height: 75px;
+}
+
 .profileIcon{
  	width: 150px;
  	height: 150px;
@@ -152,4 +157,12 @@ z-index: 2;
 
 .titleBox{
 	width: 30%;
+}
+
+#newSizzle{
+	display:none;
+}
+
+#sizzleButton{
+
 }
