@@ -1,5 +1,5 @@
-
 <div class = "outerUpdateContainer">
+
 <% @updates.each do |update| %>
     <div class = "updateContainer">
         <div class = "updateImage">
@@ -33,9 +33,7 @@
         </div>
     <% end %> 
 </div>
-  
-
-      
+   
 <!-- Form that calls create  -->
 
 <%= form_for @update, :method => :post do |f|  %>
