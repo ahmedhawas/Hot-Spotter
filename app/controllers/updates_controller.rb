@@ -50,29 +50,30 @@ class UpdatesController < ApplicationController
 
 	def like
 		@update = Update.find(params[:update_id])
-		current_user.like!(@update)
-		#updating the likes for that update
-		@update.likes +=1
-		@update.save!
-		#updating the likes for the user creating the update
-		update_owner = @update.user
-		update_owner.likes+=1
-		update_owner.save!
-
-		redirect_to updates_path
-	end
-
-	def unlike
-		@update = Update.find(params[:update_id])
-		current_user.unlike!(@update)
-		@update.likes -=1
-		@update.save!
-
-		update_owner = @update.user
-		update_owner.likes-=1
-		update_owner.save!
 		
-		redirect_to updates_path
+		#updating the likes for that update
+		if current_user.likes?(@update)
+			current_user.unlike!(@update)
+			@update.likes -=1
+			@update.save!
+			update_owner = @update.user
+			update_owner.likes -=1
+			update_owner.save!
+		else
+			current_user.like!(@update)
+			@update.likes +=1
+			@update.save!
+			update_owner = @update.user
+			update_owner.likes+=1
+			update_owner.save!
+		end
+
+		respond_to do |format|
+			format.html { redirect_to updates_path }
+
+			# Add error handling if necessary
+			format.json { render :json => {error: false} }
+		end
 	end
 
 	def get_heatmap_data
