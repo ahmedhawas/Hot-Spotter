@@ -15,76 +15,42 @@ window.PersonalMapModule = (function() {
         mapOptions);
 
      var UpdatesData =  _.map(userUpdates, function(location){
-      location.comment
     return new google.maps.LatLng(location.lat,location.lng)
-
   })
 
-    var marker1 = new google.maps.Marker({
-      position: UpdatesData[0],
-      map: map,
-      title:"1"
-    });
-    var contentString = " ";
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-    google.maps.event.addListener(marker1, 'click', function() {
-        infowindow.open(map,marker1);
-    });
+    var Updates =  _.map(userUpdates, function(location){
+    return location.comment
+  })
+//////////////////////
+    console.log(UpdatesData[0])
+    console.log(Updates)
+    var locations = [
+      [Updates[0], UpdatesData[0]['lb'], UpdatesData[0]['mb'], 4],
+      [Updates[1], UpdatesData[1]['lb'], UpdatesData[1]['mb'], 5],
+      [Updates[2], UpdatesData[2]['lb'], UpdatesData[2]['mb'], 3],
+      [Updates[3], UpdatesData[3]['lb'], UpdatesData[3]['mb'], 2],
+      [Updates[4], UpdatesData[4]['lb'], UpdatesData[4]['mb'], 1]
+    ];
 
-    var marker2 = new google.maps.Marker({
-      position: UpdatesData[1],
-      map: map,
-      title:"1"
-    });
-    var contentString = " ";
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-    google.maps.event.addListener(marker2, 'click', function() {
-        infowindow.open(map,marker2);
-    });
+    var infowindow = new google.maps.InfoWindow();
 
-    var marker3 = new google.maps.Marker({
-      position: UpdatesData[2],
-      map: map,
-      title:"1"
-    });
-    var contentString = " ";
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-    google.maps.event.addListener(marker3, 'click', function() {
-        infowindow.open(map,marker3);
-    });
+    var marker, i;
 
-    var marker4 = new google.maps.Marker({
-      position: UpdatesData[3],
-      map: map,
-      title:"1"
-    });
-    var contentString = " ";
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-    google.maps.event.addListener(marker4, 'click', function() {
-        infowindow.open(map,marker4);
-    });
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
 
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+/////////////////////////////////////////////
 
-    var marker5 = new google.maps.Marker({
-      position: UpdatesData[4],
-      map: map,
-      title:"1"
-    });
-    var contentString = " ";
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-    google.maps.event.addListener(marker5, 'click', function() {
-        infowindow.open(map,marker5);
-    });
 
     var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
     map.mapTypes.set('Styled', styledMapType);
