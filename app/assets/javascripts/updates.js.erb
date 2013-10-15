@@ -21,8 +21,7 @@ window.MapModule = (function() {
       type: 'PATCH',
       url: '/users/update',
       dataType: 'json',
-      // data: { user: { lat: 'position.coords.latitude', long: 'position.coords.longitude'}}
-      data: { user: { lat: position.coords.latitude, long: position.coords.longitude}}
+      data: { user: { lat: 'position.coords.latitude', long: 'position.coords.longitude'}}
     });
 
       map = new google.maps.Map(document.getElementById("googleMap"), options);
