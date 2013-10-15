@@ -21,8 +21,10 @@ window.MapModule = (function() {
       type: 'PATCH',
       url: '/users/update',
       dataType: 'json',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+
       // data: { user: { lat: 'position.coords.latitude', long: 'position.coords.longitude'}}
-      data: { user: { lat: position.coords.latitude, long: position.coords.longitude}}
+      data: { lat: position.coords.latitude, long: position.coords.longitude}
     });
 
       map = new google.maps.Map(document.getElementById("googleMap"), options);

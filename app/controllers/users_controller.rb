@@ -18,8 +18,11 @@ class UsersController < ApplicationController
 
 	def update
 		@user = current_user
-    @user.update_attributes user_params
-
+    @user.lat = params[:lat]
+    @user.long = params[:long]
+    @user.save!
+    
+    # @user.update_attributes user_params
 		if @user.save
       respond_to do |format|
           format.html { redirect_to user_path(params[:id]) , notice: 'Profile pic changed'}
@@ -28,6 +31,10 @@ class UsersController < ApplicationController
     else
       redirect_to user_path(params[:id])
       end
+  end
+
+  def update_location
+
   end
 
   def show
