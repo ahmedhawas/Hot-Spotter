@@ -1,6 +1,6 @@
 function codeAddress() {
     geocoder = new google.maps.Geocoder();
-    var address = document.getElementById('address').value;
+    var address = document.getElementById('addressInput').value;
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);

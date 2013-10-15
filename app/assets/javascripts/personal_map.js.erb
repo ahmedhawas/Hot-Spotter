@@ -15,7 +15,10 @@ window.PersonalMapModule = (function() {
         mapOptions);
 
      var UpdatesData =  _.map(userUpdates, function(location){
-    return new google.maps.LatLng(location.lat,location.lng)})
+      location.comment
+    return new google.maps.LatLng(location.lat,location.lng)
+
+  })
 
     var marker1 = new google.maps.Marker({
       position: UpdatesData[0],
