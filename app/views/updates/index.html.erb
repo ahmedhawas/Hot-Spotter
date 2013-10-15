@@ -1,8 +1,26 @@
-<div class= "row textFont thinText bigText">
+<div class= "row textFont thinText bigText hoverText">
     <div class='colLeft30'>
-      <a href="#" id="sizzleButton"> What's Sizzlin </a> 
+      <a class="modalLink" href="#"> What's Sizzlin </a> 
     </div>
     <div class='colRight70'>
+      <div class="overlay"></div>
+      <div class="modal textFont thinText smallestText">
+        <a href="#" class="closeBtn textFont thinText smallestText"> x </a>
+              
+        <%= form_for @update, :method => :post do |f|  %>
+        <div class="centerText textFont thinText normalText">What's Sizzlin?</div> 
+              <%= f.text_field :comment, {id: 'commentBox'} %></br>
+              <%= f.file_field :attachment, {id: 'attachPhoto'} %>
+              <%= f.submit 'Post Update', {id: 'submitPost'} %>
+
+                <div id="categorySelection">
+                    <% for category in Category.find(:all) %>
+                        <%= check_box_tag "update[category_ids][]", category.id, @update.categories.include?(category) %>
+                        <%= category.update_type %>
+                    <%end%>
+                </div>
+        <% end %>   
+      </div>
     </div>
 </div>      
 <div class="colLeft30">
@@ -15,60 +33,34 @@
     </div>
     <div id="googleMap" style="width:500px;height:380px;"></div>
 </div>
+
+
 <% if logged_in? %>
       <%#= link_to 'Post Update', new_update_path, class: 'btn' %>
 <% else %>
       <%= link_to 'Sign In to Update', new_session_path, class: 'btn' %>
 <% end %>
     
-<a class="modalLink" href="#">Click Me</a>
-<div class="overlay"></div>
-<div class="modal">
-  <a href="#" class="closeBtn">Close Me</a>
-  <%= form_for @update, :method => :post do |f|  %>
 
-      
-      <%= f.text_field :comment, {id: 'commentBox'} %></br>
-      <%= f.file_field :attachment, {id: 'attachPhoto'} %>
-
-      <div class="actions"><%=submit_tag 'Post Update', {id: 'submitPost'} %></div>
-  <% end %>   
-</div>
 
 <script type="text/javascript">
-$('#sizzleButton').modal({
-
-trigger: '#sizzleButton',
-
-olay:'div.overlay',
-
-modals:'div#newSizzle',
-
-animationEffect: 'slidedown',
-
-animationSpeed: 400,
-
-moveModalSpeed: 'slow',
-
-background: '00c2ff',
-
-opacity: 0.8,
-
-openOnLoad: false,
-
-docClose: true,
-
-closeByEscape: true,
-
-moveOnScroll: true,
-
-resizeWindow: true,
-
-video:'http://player.vimeo.com/video/9641036?color=eb5a3d',
-
-close:'.closeBtn'
-
-});
+  $('#sizzleButton').modal({
+    trigger: '#sizzleButton',
+    olay:'div.overlay',
+    modals:'div#newSizzle',
+    animationEffect: 'slidedown',
+    animationSpeed: 400,
+    moveModalSpeed: 'slow',
+    background: '00c2ff',
+    opacity: 0.8,
+    openOnLoad: false,
+    docClose: true,
+    closeByEscape: true,
+    moveOnScroll: true,
+    resizeWindow: true,
+    video:'http://player.vimeo.com/video/9641036?color=eb5a3d',
+    close:'.closeBtn'
+  });
 </script>
 
 

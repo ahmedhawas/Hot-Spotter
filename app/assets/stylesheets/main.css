@@ -57,12 +57,12 @@ a:hover {
   display: none;
   /*background: #eee;*/
   background: #FFF;
-  padding: 0 20px 20px;
+  padding: 15px 20px 20px;
   overflow: auto;
   z-index: 1001;
   position: absolute;
-  width: 500px;
-  min-height: 200px;
+  width: 550px;
+  height: 300px;
   border-radius: 15px;
 }
 

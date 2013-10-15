@@ -40,11 +40,14 @@ body {
 }
 
 .textFont {font-family: 'Lato', sans-up; margin:0px;}
+.textFont a{text-decoration: none;}
 
 .thinnerText{ font-weight: 50; }
 .thinText{ font-weight: 200; }
 .normalText{ font-weight: 300; }
 .boldText{ font-weight: 900;}
+
+.hoverText:hover { font-weight: 300;}
 
 .darkText{ color: #393939; }
 .lightText{ color: #FFFFFF; }
@@ -70,6 +73,7 @@ body {
 .detailsHeight{ line-height: 35px; }
 
 .largeMargin{ margin-top: 100px; margin-bottom: 65px; }
+.medMargin{ margin-top: 150px; margin-bottom: 65px; }
 
 .leftMargin{ margin-left: 6%;}
 
