@@ -18,15 +18,16 @@ class UpdatesController < ApplicationController
 	end
 
 	def create
-			@category = Category.new
-			@update = @user.updates.build update_params
+		@category = Category.new
+		
+		@update = @user.updates.build update_params
 
 	    @update.lat=@user.lat
 	    @update.long=@user.long
 	    @update.likes=0
 
 	    Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
-			response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long ,created_at:@update.created_at})
+		response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long ,created_at:@update.created_at})
 
 	    if @update.save
 	    	  respond_to do |format|
@@ -88,6 +89,6 @@ class UpdatesController < ApplicationController
 	private
 
 	def update_params
-		params.require(:update).permit(:comment,:likes, :attachment, :lat, :long)
+		params.require(:update).permit(:comment,:likes, :attachment, :lat, :long, :user_id, :category_ids =>[])
 	end
 end
