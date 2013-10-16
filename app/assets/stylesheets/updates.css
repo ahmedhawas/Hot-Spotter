@@ -6,6 +6,25 @@
 	
 }
 
+.slide {
+  position: relative;
+}
+.slide .inner {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+#profileColumn{
+	display:none;
+	float: right;
+	height: 100%;
+	width: 400px;
+	background-color: #000;
+	opacity: 0.6;
+	z-index: 5;
+}
+
 #commentBox{
 	width: 400px;
 	margin-left: 50px;
@@ -42,6 +61,7 @@
 .outerUpdateContainer{
 	/*border: solid 2px rgba(70, 106, 139, 0.2);*/
 	border-radius: 8px;
+	height: 500px;
 }
 
 .updateContainer{

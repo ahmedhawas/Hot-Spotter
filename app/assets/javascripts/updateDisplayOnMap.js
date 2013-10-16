@@ -14,6 +14,8 @@ $(function(){
 		$( ".target" ).toggle();
 	});
 
+)};
+
 
 	 // $('.updateContainer').click( function() {
 	 // 	var marker;
