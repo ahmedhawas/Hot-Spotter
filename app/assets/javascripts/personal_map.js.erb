@@ -2,53 +2,55 @@ window.PersonalMapModule = (function() {
   var userUpdates;
 
   function initialize() { 
-
+    var UpdatesData =  _.map(userUpdates, function(location){
+    return new google.maps.LatLng(location.lat,location.lng)
+  })
+    var Updates =  _.map(userUpdates, function(location){
+    return location.comment
+  })
+    
     var mapOptions = {
       mapTypeControlOptions: {
         mapTypeIds: [ 'Styled']
       },
-      center: new google.maps.LatLng(-25.363882, 131.044922),
-      zoom: 2,
+      center: new google.maps.LatLng(43.67023, -79.38676),
+      zoom: 10,
       mapTypeId: 'Styled'
     };
     var map = new google.maps.Map(document.getElementById("googleMap"),
         mapOptions);
-
-     var UpdatesData =  _.map(userUpdates, function(location){
-    return new google.maps.LatLng(location.lat,location.lng)
-  })
-
-    var Updates =  _.map(userUpdates, function(location){
-    return location.comment
-  })
+  
 //////////////////////
-    console.log(UpdatesData[0])
-    console.log(Updates)
-    var locations = [
-      [Updates[0], UpdatesData[0]['lb'], UpdatesData[0]['mb'], 4],
-      [Updates[1], UpdatesData[1]['lb'], UpdatesData[1]['mb'], 5],
-      [Updates[2], UpdatesData[2]['lb'], UpdatesData[2]['mb'], 3],
-      [Updates[3], UpdatesData[3]['lb'], UpdatesData[3]['mb'], 2],
-      [Updates[4], UpdatesData[4]['lb'], UpdatesData[4]['mb'], 1]
-    ];
+  var locations = new Array(UpdatesData.length);
+  for (var i=0;i<UpdatesData.length;i++)
+  { 
+    var location = [Updates[i], UpdatesData[i]['lb'], UpdatesData[i]['mb']]
+    locations[i]= location
+  }
+  ////This is so that you can generate two markers in the same spot, by moving it slightly.
+  for (var i=0; i<locations.length;i++){
+    locations[i][1] = locations[i][1]+(Math.random() -.5) / 150000;
+  }
+    if (locations.length > 0){
+      var infowindow = new google.maps.InfoWindow();
+      var marker, i;
 
-    var infowindow = new google.maps.InfoWindow();
+      for (i = 0; i < locations.length; i++) {  
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          map: map
+        });
 
-    var marker, i;
 
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+      }      
     }
+
 /////////////////////////////////////////////
 
 
