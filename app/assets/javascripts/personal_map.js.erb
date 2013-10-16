@@ -8,13 +8,13 @@ window.PersonalMapModule = (function() {
     var Updates =  _.map(userUpdates, function(location){
     return location.comment
   })
-
+    
     var mapOptions = {
       mapTypeControlOptions: {
         mapTypeIds: [ 'Styled']
       },
-      center: new google.maps.LatLng(UpdatesData[0]['lb'], UpdatesData[0]['mb']),
-      zoom: 16,
+      center: new google.maps.LatLng(43.67023, -79.38676),
+      zoom: 10,
       mapTypeId: 'Styled'
     };
     var map = new google.maps.Map(document.getElementById("googleMap"),
@@ -31,7 +31,6 @@ window.PersonalMapModule = (function() {
   for (var i=0; i<locations.length;i++){
     locations[i][1] = locations[i][1]+(Math.random() -.5) / 150000;
   }
-   
     if (locations.length > 0){
       var infowindow = new google.maps.InfoWindow();
       var marker, i;
