@@ -1,18 +1,22 @@
 <div class = "outerUpdateContainer">
+  <div class = "updateContent">
   <% @updates.each do |update| %>
-     <a> <div class = "updateContainer" data-lat="<%= update.lat %>" data-lng="<%= update.long %>" ></a>
+    <a href="#"> <div class = "updateContainer" data-lat="<%= update.lat %>" data-lng="<%= update.long %>" 
+      data-img="<%= render 'returnFbookOrAvatar', :update => update %>"></a>
       <div class = "updateImage">
-        <% if update.attachment_file_size %> 
-            <%= image_tag update.attachment.url(:thumb) %>
-            <% if current_user.username == update.user.username %>
-                <%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %>
-            <% end %> 
-        <% end %>
+          <%= render 'displayImgIcons', :update => update %>
+     
+        <%# if update.attachment_file_size %> 
+            <%#= image_tag update.attachment.url(:thumb) %>
+            <%# if current_user.username == update.user.username %>
+                <%#= link_to "Delete", update, :confirm => "Delete update", :method => :delete %>
+            <%# end %> 
+        <%# end %>
       </div>
       <div class = "updateComment textFont normalText darkText rightText smallestText">
-              <div class="updateText">
+              <div class="updateText leftText">
                   <%= update.user.username%></br> 
-                  <div class = "boldText darkText rightText smallestText">
+                  <div class = "boldText darkText smallestText">
                   <%= update.comment %></div>
                   <%= update.created_at.localtime.strftime('%I:%M%p')%> 
                   <%#= update.lat%> <%#= update.long%> 
@@ -33,10 +37,12 @@
               </div>
         </div>  
     </div>
-  <% end %> 
+  <% end %>
+  </div> 
 </div>
 
-
+<script> $('.outerUpdateContainer').hide() </script>
+<script> $('.outerUpdateContainer').delay(1500).fadeIn(1500); </script>
 
 
   

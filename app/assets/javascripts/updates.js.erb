@@ -51,6 +51,7 @@ window.MapModule = (function() {
       });
       heatmap.setMap(map);
 
+
 //////////////GENERATING FAKE HEAT MAP DATA//////////////////////
     function getRandomInRange(lat,lng, radius) {
           var angle = Math.random()*Math.PI*2;
@@ -75,6 +76,10 @@ window.MapModule = (function() {
         radius: 20
       });
       heatmap.setMap(map);
+
+      
+      addUpdateMarker();
+
     }
     // Univerity of Toronto
 
@@ -88,6 +93,7 @@ window.MapModule = (function() {
       };
       alert("Error: " + errors[error.code]);
     }
+    
 
   return {
     start: function(opts) {

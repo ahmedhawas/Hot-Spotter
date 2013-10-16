@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
 	  	@user = login(params[:username], params[:password])
 	  	
 	    if @user  
-	    	flash[:notice] = "Logged in!"
 	      redirect_back_or_to updates_path  
 	    else  
 	    	flash[:notice] = "Invalid" 

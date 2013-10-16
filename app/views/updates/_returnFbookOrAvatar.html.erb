@@ -1,0 +1,7 @@
+
+	<% if  update.user.facebook_img %>
+	        <%="#{update.user.facebook_img}?type=small" %> 
+	<% else %>
+	        <%=update.user.avatar.url(:thumb) %>)
+	<% end %> 
+

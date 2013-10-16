@@ -1,8 +1,38 @@
+<div id="profileColumn">
+    HELLOHELLO
+    <a id='close'> << close </a>
+</div>
+
+<script type="text/javascript">
+    // var toggle = 0;
+
+    // $(".profileIcon").click(function() {
+      if (toggle == 0){
+        // $('#profileColumn').fadeTo(1500, 0.5);
+        // $('#profileColumn').show( 'slide', {direction: 'left'}, 'slow' );
+        toggle = 1;
+      }
+      else{
+        // $('#profileColumn').fadeTo(1500, 0);
+        // $('#profileColumn').hide( 'slide', {direction: 'right'}, 'slow' );
+        toggle = 0;
+      }
+    // });
+      //    $(".profileIcon").animate({
+      //           left: '-150%',
+      //       }, 500 );
+      // });
+
+
+</script>
+
 <div class= "row textFont thinText bigText hoverText">
+
     <div class='colLeft30'>
       <a class="modalLink" href="#"> What's Sizzlin </a> 
     </div>
     <div class='colRight70'>
+      <%= render 'displayCategories' %>
       <div class="overlay"></div>
       <div class="modal textFont thinText smallestText">
         <a href="#" class="closeBtn textFont thinText smallestText"> x </a>
@@ -39,7 +69,14 @@
       <%#= link_to 'Post Update', new_update_path, class: 'btn' %>
 <% else %>
       <%= link_to 'Sign In to Update', new_session_path, class: 'btn' %>
-<% end %>    
+<% end %>  
+
+<script> $('.modalLink').hide() </script>
+<script> $('.modalLink').delay(500).fadeIn(1500); </script>  
+<script> $('#googleMap').hide() </script>
+<script> $('#googleMap').delay(100).fadeIn(2500); </script>  
+<script> $('#searchBox').hide() </script>
+<script> $('#searchBox').delay(1500).fadeIn(1500); </script>  
 
 <script type="text/javascript">
   $('#sizzleButton').modal({

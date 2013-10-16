@@ -15,6 +15,8 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery.gmap.min.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+
   <%= stylesheet_link_tag "application", :media => "all" %>
   
   <%= javascript_include_tag "application" %>
@@ -26,15 +28,15 @@
 <div class='top-bar'>
     <% if logged_in? %>
           <% if  @user.facebook_img %>
-                <%= link_to (user_path(@current_user.id)) do %>
-                    <div class="profileIcon linkText" style="display: block; background-image: url(<%= @user.facebook_img.concat("?type=large") %>);"></br></div>
-                <% end %>  
+                <%#= link_to (user_path(@current_user.id)) do %>
+                   <a > <div class="profileIcon" style="display: block; background-image: url(<%= @user.facebook_img.concat("?type=large") %>);"></br></div> 
+                    </a>
+                <%# end %>  
           <% else %>
                 <%= link_to (user_path(@current_user.id)) do %>
-                  <div class="profileIcon linkText" style="display: block; background-image: url( <%=@user.avatar.url(:medium) %>);"></br></div>
+                 <div class="profileIcon" style="display: block; background-image: url( <%=@user.avatar.url(:small) %>);"></br></div>
                 <% end %> 
-          <% end %>
-                
+          <% end %>        
     <% else %>
     <% end %>
 </div>
@@ -47,6 +49,10 @@
     <% end %>
 
 	 <%= yield %>
+
+
+<script> $('.profileIcon').hide() </script> 
+<script> $('.profileIcon').delay(500).fadeIn(1500); </script>
   
 </div>
 </div>
