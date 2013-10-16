@@ -22,6 +22,9 @@ gem "paperclip", "~> 3.0"
 
 gem 'firebase'
 
+gem 'faker'
+gem 'populator'
+
 # gem 'bootstrap-sass', '~> 2.2.2.0'
 
 

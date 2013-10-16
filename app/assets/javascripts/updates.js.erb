@@ -51,8 +51,36 @@ window.MapModule = (function() {
         data: heatmapData
       });
       heatmap.setMap(map);
-    }
 
+//////////////GENERATING FAKE HEAT MAP DATA//////////////////////
+    function getRandomInRange(lat,lng, radius) {
+          var angle = Math.random()*Math.PI*2;
+          var distance = Math.random()*radius;
+          var x = Math.cos(angle)*distance;
+          var y = Math.sin(angle)*distance;
+
+          return [lat+x,lng+y]
+    }
+    function generateRandomData(lat, lng, radius, density) {
+      var heatData = new Array(density);
+      for (var i = 0; i < heatData.length; i++){
+        var position = getRandomInRange(lat, lng, radius);
+       
+        heatData[i] = new google.maps.LatLng(position[0], position[1]);
+      }
+      return heatData;
+    }
+    //Dundas square
+    var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: generateRandomData(43.6561,-79.3803, 0.001,20).concat(generateRandomData(43.6617,-79.3950, 0.001,20)),
+        radius: 20
+      });
+      heatmap.setMap(map);
+    }
+    // Univerity of Toronto
+
+
+/////////////////////////////////////////////////////////////////////
     function displayError(error) {
       var errors = {
         1: 'Permission denied',
@@ -60,22 +88,6 @@ window.MapModule = (function() {
         3: 'Request timeout'
       };
       alert("Error: " + errors[error.code]);
-    }
-
-    function getRandomInRange(from, to, fixed) {
-      return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
-    }
-    function generateRandomData() {
-      var heatData = new Array(10000);
-      lat = <%= User.all.first.lat %>
-      lng = <%= User.all.first.long %>
-      for (var i = 0; i < heatData.length; i++){
-        // lat = getRandomInRange(43.645527, 43.660527, 4);
-        // lng = getRandomInRange(-79.390961, -79.372961, 4);
-       
-        heatData[i] = new google.maps.LatLng(lat,lng);
-      }
-      return heatData;
     }
 
   return {

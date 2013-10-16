@@ -19,7 +19,6 @@ class UpdatesController < ApplicationController
 
 	def create
 		@category = Category.new
-		
 		@update = @user.updates.build update_params
 
 	    @update.lat=@user.lat
