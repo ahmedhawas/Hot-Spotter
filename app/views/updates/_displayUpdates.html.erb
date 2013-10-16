@@ -1,6 +1,6 @@
 <div class = "outerUpdateContainer">
   <% @updates.each do |update| %>
-    <div class = "updateContainer">
+     <a> <div class = "updateContainer" data-lat="<%= update.lat %>" data-lng="<%= update.long %>" ></a>
       <div class = "updateImage">
         <% if update.attachment_file_size %> 
             <%= image_tag update.attachment.url(:thumb) %>

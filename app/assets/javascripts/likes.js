@@ -4,7 +4,7 @@ $(function() {
         likes = self.next('.like-count'),
         heart = self.find('.heart'),
         count = parseInt(likes.text(), 10);
-
+        
     heart.toggleClass('my-like');
     heart.hasClass('my-like') ? likes.text(count + 1) : likes.text(count - 1);
 
