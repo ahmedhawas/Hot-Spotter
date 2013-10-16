@@ -6,13 +6,8 @@
 	
 }
 
-.slide {
-  position: relative;
-}
-.slide .inner {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+#close{
+
 }
 
 #profileColumn{
@@ -24,6 +19,7 @@
 	opacity: 0.6;
 	z-index: 5;
 }
+
 
 #commentBox{
 	width: 400px;
@@ -59,35 +55,42 @@
 }
 
 .outerUpdateContainer{
-	/*border: solid 2px rgba(70, 106, 139, 0.2);*/
+	/*border: solid 7px rgba(10, 275, 132, 0.2);*/
+	border: solid 7px rgba(105, 16, 442, 0.2);
+	/*border: 7px solid rgba(159, 36, 40, 0.4);*/
 	border-radius: 8px;
 	height: 500px;
+	overflow: hidden;
+}
+
+.updateContent{
+	height: 500px;
+	overflow: auto;
 }
 
 .updateContainer{
 	width: 100%;
 	height: 70px;
-
 	/*background-color: rgba(134, 115, 219, 0.7);*/
-	background: rgba(70, 106, 139, 0.2);
+	background: rgba(70, 106, 139, 0.25);
 	color: rgba(134, 115, 219, 0.7);
 	
 
-	border-top:solid 1px #E8E8E8;
-	border-bottom:solid 1px #E8E8E8;
+	border-bottom:solid 1px rgba(70, 106, 139, 0.1);
+	
 
-	-moz-border-radius-topleft: 8px;
-	-moz-border-radius-topright:8px;
-	-moz-border-radius-bottomleft:8px;
-	-moz-border-radius-bottomright:8px;
-	-webkit-border-top-left-radius:8px;
-	-webkit-border-top-right-radius:8px;
-	-webkit-border-bottom-left-radius:8px;
-	-webkit-border-bottom-right-radius:8px;
-	border-top-left-radius:8px;
-	border-top-right-radius:8px;
-	border-bottom-left-radius:8px;
-	border-bottom-right-radius:8px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-topright:2px;
+	-moz-border-radius-bottomleft:2px;
+	-moz-border-radius-bottomright:2px;
+	-webkit-border-top-left-radius:2px;
+	-webkit-border-top-right-radius:2px;
+	-webkit-border-bottom-left-radius:2px;
+	-webkit-border-bottom-right-radius:2px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
 .updateContainer:hover{

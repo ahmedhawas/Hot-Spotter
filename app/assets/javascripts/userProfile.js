@@ -7,14 +7,11 @@
 
 // )};
 
-$(document).ready(function(){
+$(document).ready(function() {
     $(".profileIcon").click(function() {
-        // $('#profileColumn').hide('slide', {direction: 'right'}, 1000);
-     //    $('#profileColumn').animate({
-     // 	left: '-=150px'
-   		// }, 500);
-    	$('#profileColumn').fadeTo(3000, 0.5);
-    });
+    	// $('#profileColumn').fadeTo(3000, 0.5);
+
+  
 )};
 
 // $(document).ready(function() {
