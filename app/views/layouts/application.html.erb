@@ -28,13 +28,13 @@
 <div class='top-bar'>
     <% if logged_in? %>
           <% if  @user.facebook_img %>
-                <%= link_to (user_path(@current_user.id)) do %>
-                   <a> <div class="profileIcon" style="display: block; background-image: url(<%= @user.facebook_img.concat("?type=large") %>);"></br></div> 
+                <%#= link_to (user_path(@current_user.id)) do %>
+                   <a > <div class="profileIcon" style="display: block; background-image: url(<%= @user.facebook_img.concat("?type=large") %>);"></br></div> 
                     </a>
-                <% end %>  
+                <%# end %>  
           <% else %>
                 <%= link_to (user_path(@current_user.id)) do %>
-                  <div class="profileIcon" style="display: block; background-image: url( <%=@user.avatar.url(:small) %>);"></br></div>
+                 <div class="profileIcon" style="display: block; background-image: url( <%=@user.avatar.url(:small) %>);"></br></div>
                 <% end %> 
           <% end %>        
     <% else %>

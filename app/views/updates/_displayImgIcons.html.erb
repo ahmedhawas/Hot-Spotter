@@ -1,0 +1,11 @@
+<% if  update.user.facebook_img %>
+      <%= link_to (user_path(update.user_id)) do %>
+          <a href="#"> <div class="profileIconMini">
+          <%= image_tag "#{update.user.facebook_img}?type=small" %></br></div> 
+          </a>
+      <% end %>  
+<% else %>
+      <%= link_to (user_path(update.user_id)) do %>
+        <div class="profileIconMini linkText" style="display: block; background-image: url( <%=update.user.avatar.url(:thumb) %>);"></br></div>
+      <% end %> 
+<% end %> 

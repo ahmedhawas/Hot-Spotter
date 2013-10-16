@@ -54,6 +54,38 @@
 	margin: 8px;
 }
 
+.circle {
+	float: left;
+	margin-left: 20px;
+	margin-top: 30px;
+	width: 30px;
+ 	height: 30px;
+ 	overflow: hidden;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	filter: none;
+  -webkit-filter: grayscale(0%);
+   transition:.2s;
+   z-index: 2;
+}
+
+.circle:hover {
+	width: 35px;
+ 	height: 35px;
+}
+
+.green{
+	background-color: rgba(105, 165, 477, 0.2);
+}
+
+.yellow{
+	background-color: rgba(105, 165, 477, 0.4);
+}
+
+.blue{
+	background-color: rgba(105, 165, 477, 0.6);
+}
 .outerUpdateContainer{
 	/*border: solid 7px rgba(10, 275, 132, 0.2);*/
 	border: solid 7px rgba(105, 16, 442, 0.2);

@@ -1,19 +1,10 @@
 <div class = "outerUpdateContainer">
   <div class = "updateContent">
   <% @updates.each do |update| %>
-     <a> <div class = "updateContainer" data-lat="<%= update.lat %>" data-lng="<%= update.long %>"></a>
+    <a href="#"> <div class = "updateContainer" data-lat="<%= update.lat %>" data-lng="<%= update.long %>" 
+      data-img="<%= render 'returnFbookOrAvatar', :update => update %>"></a>
       <div class = "updateImage">
-         <% if  update.user.facebook_img %>
-                <%#= link_to (user_path(@current_user.id)) do %>
-                    <a href="#"> <div class="profileIconMini">
-                    <%= image_tag "#{update.user.facebook_img}?type=small" %></br></div> 
-                    </a>
-                <%# end %>  
-          <% else %>
-                <%= link_to (user_path(@current_user.id)) do %>
-                  <div class="profileIconMini linkText" style="display: block; background-image: url( <%=update.user.avatar.url(:thumb) %>);"></br></div>
-                <% end %> 
-          <% end %> 
+          <%= render 'displayImgIcons', :update => update %>
      
         <%# if update.attachment_file_size %> 
             <%#= image_tag update.attachment.url(:thumb) %>

@@ -50,6 +50,9 @@ window.MapModule = (function() {
         data: heatmapData
       });
       heatmap.setMap(map);
+      
+      addUpdateMarker();
+
     }
 
     function displayError(error) {
@@ -76,6 +79,8 @@ window.MapModule = (function() {
       }
       return heatData;
     }
+
+    
 
   return {
     start: function(opts) {
