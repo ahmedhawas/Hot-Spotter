@@ -11,7 +11,7 @@ $(function(){
         map: map,
         title: "Update Location"
     });
-    map.setCenter(pos)
-    map.setZoom(16)
+    map.setCenter(pos);
+    map.setZoom(16);
    });
 });
