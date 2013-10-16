@@ -1,37 +1,42 @@
 <div class = "outerUpdateContainer">
-    <% @updates.each do |update| %>
-        <div class = "updateContainer">
-          <div class = "updateImage">
-            <% if update.attachment_file_size %> 
-                <%= image_tag update.attachment.url(:thumb) %>
-                <% if current_user.username == update.user.username %>
-                    <%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %>
-                <% end %> 
-            <% end %>
-          </div>
-          <div class = "updateComment textFont normalText darkText rightText smallestText">
-                  <div class="updateText">
-                      <%= update.user.username%></br> 
-                      <div class = "boldText darkText rightText smallestText">
-                      <%= update.comment %></div>
-                      <%= update.created_at.localtime.strftime('%I:%M%p')%> 
-                      <%#= update.lat%> <%#= update.long%> 
-                      
-                  </div>
-                  <div class= "updateLike">
-                      <% if current_user.likes?(update) %>
-                          <%= link_to (update_unlike_url(update)) do %>
-                              <div class="my-like" title="Like"></div><%end%>
-                      <% elsif !current_user.likes?(update) %>
-                          <%= link_to (update_like_url(update)) do %>
-                          <div class="my-unlike" title="Like"></div><% end %>
-                      <% end %>
-                      <%=update.likes%>
-                  </div>
-            </div>  
-        </div>
-    <% end %> 
+  <% @updates.each do |update| %>
+     <a> <div class = "updateContainer" data-lat="<%= update.lat %>" data-lng="<%= update.long %>" ></a>
+      <div class = "updateImage">
+        <% if update.attachment_file_size %> 
+            <%= image_tag update.attachment.url(:thumb) %>
+            <% if current_user.username == update.user.username %>
+                <%= link_to "Delete", update, :confirm => "Delete update", :method => :delete %>
+            <% end %> 
+        <% end %>
+      </div>
+      <div class = "updateComment textFont normalText darkText rightText smallestText">
+              <div class="updateText">
+                  <%= update.user.username%></br> 
+                  <div class = "boldText darkText rightText smallestText">
+                  <%= update.comment %></div>
+                  <%= update.created_at.localtime.strftime('%I:%M%p')%> 
+                  <%#= update.lat%> <%#= update.long%> 
+                  
+              </div>
+              <div class= "updateLike">
+                  <% if current_user.likes?(update) %>
+                      <%= link_to update_like_url(update), :class => "update-like" do %>
+                        <div class="heart my-like" title="Like"></div>
+                      <%end%>
+                  <% elsif !current_user.likes?(update) %>
+                    <%= link_to update_like_url(update), :class => "update-like" do %>
+                      <div class="heart" title="Like"></div>
+                    <% end %>
+                  <% end %>
+
+                  <span class="like-count"><%= update.likes %></span>
+              </div>
+        </div>  
+    </div>
+  <% end %> 
 </div>
+
+
 
 
 <!-- <form id="comment-form">

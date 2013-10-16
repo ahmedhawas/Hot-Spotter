@@ -13,9 +13,6 @@ $(function(){
 
 		$( ".target" ).toggle();
 	});
-});
-
-
 
 
 	 // $('.updateContainer').click( function() {
@@ -47,3 +44,4 @@ $(function(){
   //     		marker_location = [];
   //     	};
 	 // });
+
