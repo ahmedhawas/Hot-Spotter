@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   acts_as_liker
 
-  has_attached_file :avatar, :styles => { :small => "150x150>", :medium => "300x300>", :thumb => "50x50>" }
+  has_attached_file :avatar, :styles => { :small => "170x170>", :medium => "300x300>", :thumb => "50x50>" }
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
 
   def reputation
