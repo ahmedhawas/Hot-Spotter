@@ -14,8 +14,16 @@
 //= require jquery_ujs
 //= require underscore
 //= require_tree .
+
 // $(function(){
 //   if ($("#comments").length > 0) {
+//     setTimeout(updateComments, 10000);
+//   }
+// });
+
+
+// $(function(){
+//   if ($(".updateContent").length > 0) {
 //     setTimeout(updateComments, 10000);
 //   }
 // });

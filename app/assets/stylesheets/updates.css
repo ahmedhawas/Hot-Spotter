@@ -10,14 +10,24 @@
 
 }
 
-#profileColumn{
+.displayNone{
 	display:none;
+}
+
+#profileColumn{
 	float: right;
+	padding-top: 25px;
+	padding-left: 15px;
 	height: 100%;
-	width: 400px;
+	display: none;
 	background-color: #000;
 	opacity: 0.6;
 	z-index: 5;
+	transition: width 500ms ease-in-out;
+}
+
+#profileColumn.open{
+	width: 20%;
 }
 
 
@@ -71,37 +81,32 @@
 }
 
 .circle:hover {
-	width: 35px;
- 	height: 35px;
+	width: 115px;
+	border-radius: 10px;
 }
 
-.green{
-	background-color: rgba(105, 165, 477, 0.2);
+.circle:hover .category{
+	display: block;
 }
 
-.yellow{
-	background-color: rgba(105, 165, 477, 0.4);
+.category{
+	display: none;
+	padding-left: 10px;
+	padding-top: 1px;
 }
 
-.blue{
-	background-color: rgba(105, 165, 477, 0.6);
-}
+.lightest{background-color: rgba(105, 165, 477, 0.2);}
+.light{background-color: rgba(105, 165, 477, 0.4);}
 
-.red{
-	background-color: rgba(105, 165, 477, 0.6);
-}
+.normal{background-color: rgba(105, 165, 477, 0.6);}
+.medium{background-color: rgba(105, 165, 477, 0.8);}
+.dark{background-color: rgba(105, 165, 477, 1.0);}
 
-.orange{
-	background-color: rgba(105, 165, 477, 0.6);
-}
-
-.purple{
-	background-color: rgba(105, 165, 477, 0.6);
-}
 
 .outerUpdateContainer{
 	/*border: solid 7px rgba(10, 275, 132, 0.2);*/
-	border: solid 7px rgba(105, 16, 442, 0.2);
+	/*border: solid 7px rgba(105, 16, 442, 0.2);*/
+	border: solid 7px rgba(105, 100, 442, 0.2);
 	/*border: 7px solid rgba(159, 36, 40, 0.4);*/
 	border-radius: 8px;
 	height: 500px;
@@ -138,24 +143,12 @@
 	border-bottom-right-radius: 2px;
 }
 
-.updateContainer:hover{
-	background: rgba(70, 106, 139, 0.5);
-}
+.updateContainer:hover{	background: rgba(70, 106, 139, 0.5);}
 
-.updateImage{
-	width: 20%;
-	float: left;
-}
 
-.updateComment{
-	width: 80%;
-	float: right;
-}
-
-.updateText{
-	width: 75%;
-	float: left;
-}
+.updateImage{ width: 20%; float: left;}
+.updateComment{ width: 80%; float: right;}
+.updateText{width: 75%; padding-left: 10px; float: left;}
 
 .updateLike{
 	width: 25%;

@@ -2,11 +2,15 @@
 #responsive_map div {-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;}
 .gm-style-iw {max-width: none !important; min-width: none !important; max-height: none !important; min-height: none !important; overflow-y: hidden !important; overflow-x: hidden !important; line-height: normal !important; padding: 5px !important; }
 
-#googleMap{ overflow: hidden; 
+#googleMap{ /*overflow: hidden; */
+			width: 100%;
 			border-radius: 8px; 
 			/*border: 7px solid rgba(159, 36, 40, 0.4);*/
-			border: 7px solid rgba(158, 36, 497, 0.2);
+			/*border: 7px solid rgba(158, 36, 497, 0.2);*/
+			border: solid 7px rgba(105, 100, 442, 0.2);
+			transition: width 500ms ease-in-out;
 }
+
 
 #searchBox{
 	position: absolute;

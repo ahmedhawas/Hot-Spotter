@@ -81,7 +81,7 @@ window.MapModule = (function() {
     }
     // Univerity of Toronto
 
-
+    google.maps.event.addDomListener(window, 'resize', displayPosition);
 /////////////////////////////////////////////////////////////////////
     function displayError(error) {
       var errors = {

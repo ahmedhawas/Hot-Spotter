@@ -1,27 +1,33 @@
-<div id="profileColumn">
-    HELLOHELLO
-    <a id='close'> << close </a>
-</div>
+
 
 <script type="text/javascript">
-    // var toggle = 0;
+    // var toggleMe = 0;
 
-    // $(".profileIcon").click(function() {
-      if (toggle == 0){
+    $(".profileIcon").click(function() {
+      // if (toggleMe == 0){
         // $('#profileColumn').fadeTo(1500, 0.5);
         // $('#profileColumn').show( 'slide', {direction: 'left'}, 'slow' );
-        toggle = 1;
-      }
-      else{
-        // $('#profileColumn').fadeTo(1500, 0);
-        // $('#profileColumn').hide( 'slide', {direction: 'right'}, 'slow' );
-        toggle = 0;
-      }
-    // });
-      //    $(".profileIcon").animate({
-      //           left: '-150%',
-      //       }, 500 );
-      // });
+
+        // var containerWidth = $('.containerFull').css('width','80%');
+        // var width = $('.colRight70').width();
+        // $("#googleMap").css('width' , width - width*0.06);
+        $('#profileColumn').toggle();
+        $('.containerFull').toggleClass('decreaseWidth');
+        // $('#googleMap').toggleClass('decrease');
+
+
+      //   toggleMe = 1;
+      // }
+      // else{
+      //   // $('#profileColumn').fadeTo(1500, 0);
+      //   // $('#profileColumn').hide( 'slide', {direction: 'right'}, 'slow' );
+      //   $('.containerFull').css('width','100%');
+      //   var width = $('.colRight70').width();
+      //   $("#googleMap").css('width' , width - width*0.06);
+      //   $('#profileColumn').css('width', 0);
+      //   toggleMe = 0;
+      // }
+   });
 
 
 </script>
@@ -37,7 +43,7 @@
       <div class="modal textFont thinText smallestText">
         <a href="#" class="closeBtn textFont thinText smallestText"> x </a>
               
-        <%= form_for @update, :method => :post do |f|  %>
+        <%= form_for @update, :remote => true do |f|  %>
         <div class="centerText textFont thinText normalText">What's Sizzlin?</div> 
               <%= f.text_field :comment, {id: 'commentBox'} %></br>
               <%= f.file_field :attachment, {id: 'attachPhoto'} %>
@@ -54,7 +60,11 @@
     </div>
 </div>      
 <div class="colLeft30">
-    <%= render 'displayUpdates' %>
+  <div class = "outerUpdateContainer">
+    <div class = "updateContent">
+      <%= render 'displayUpdates' %>
+     </div> 
+  </div>
 </div>
 <div class="colRight70">
     <div id="searchBox">
@@ -78,6 +88,12 @@
 <script> $('#searchBox').hide() </script>
 <script> $('#searchBox').delay(1500).fadeIn(1500); </script>  
 
+<script> $('#submitPost').click( function() {$('.overlay').delay(100).fadeOut(1000)}); </script>  
+<script> $('#submitPost').click( function() {
+              $('.modal').delay(100).fadeOut(1000);
+              $('.commentBox').val('');
+            }); </script>  
+
 <script type="text/javascript">
   $('#sizzleButton').modal({
     trigger: '#sizzleButton',
@@ -98,9 +114,13 @@
   });
 </script>
 <script>
-window.MapModule.start({
-    userLocations: <%= @heatmap_data.html_safe %>
-});
+  $(document).ready( function() {
+    window.MapModule.start({
+        userLocations: <%= @heatmap_data.html_safe %>
+    });
+    resize();
+
+  });
 </script>
 <script>
 window.HeatMapModule.start({

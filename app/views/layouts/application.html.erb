@@ -18,12 +18,15 @@
 
 
   <%= stylesheet_link_tag "application", :media => "all" %>
-  
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
 </head>
 <body>
+<div id="profileColumn">
+  <%= render '/users/userProfile'%>
+</div>
+
 <div class="containerFull">
 <div class='top-bar'>
     <% if logged_in? %>
@@ -33,9 +36,9 @@
                     </a>
                 <%# end %>  
           <% else %>
-                <%= link_to (user_path(@current_user.id)) do %>
-                 <div class="profileIcon" style="display: block; background-image: url( <%=@user.avatar.url(:small) %>);"></br></div>
-                <% end %> 
+                <%#= link_to (user_path(@current_user.id)) do %>
+                <a href="#"> <div class="profileIcon" style="display: block; background-image: url( <%=@user.avatar.url(:small) %>);"></br></div></a>
+                <%# end %> 
           <% end %>        
     <% else %>
     <% end %>
