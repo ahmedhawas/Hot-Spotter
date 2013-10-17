@@ -4,7 +4,7 @@ class UpdatesController < ApplicationController
 
 	def index
 
-		@updates = Update.order("created_at DESC")
+		@updates = Update.order("created_at DESC").where("created_at > ?", Time.at(params[:after].to_i+1))
 
 		# @updates = Update.all
 		@update = @user.updates.build
@@ -13,8 +13,8 @@ class UpdatesController < ApplicationController
 		@update = @user.updates.build
 		# puts @heatmap_data 
 
-		Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
-		@firebase_updates = Firebase.get("updates")
+		# Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+		# @firebase_updates = Firebase.get("updates")
 	end
 
 	def create
@@ -25,8 +25,8 @@ class UpdatesController < ApplicationController
 	    @update.long=@user.long
 	    @update.likes=0
 
-	    Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
-		response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long ,created_at:@update.created_at})
+	 #    Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+		# response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long ,created_at:@update.created_at})
 
 	    if @update.save
 	    	  respond_to do |format|
