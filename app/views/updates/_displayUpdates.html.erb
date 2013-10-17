@@ -1,17 +1,10 @@
 <div class = "outerUpdateContainer">
   <div class = "updateContent">
   <% @updates.each do |update| %>
-    <a href="#"> <div class = "updateContainer" data-lat="<%= update.lat %>" data-lng="<%= update.long %>" 
+    <a href="#"> <div id="comments" class = "updateContainer" data-lat="<%= update.lat %>" data-lng="<%= update.long %>" data-time= "<%= update.created_at.to_i%>"
       data-img="<%= render 'returnFbookOrAvatar', :update => update %>"></a>
       <div class = "updateImage">
           <%= render 'displayImgIcons', :update => update %>
-     
-        <%# if update.attachment_file_size %> 
-            <%#= image_tag update.attachment.url(:thumb) %>
-            <%# if current_user.username == update.user.username %>
-                <%#= link_to "Delete", update, :confirm => "Delete update", :method => :delete %>
-            <%# end %> 
-        <%# end %>
       </div>
       <div class = "updateComment textFont normalText darkText rightText smallestText">
               <div class="updateText leftText">
