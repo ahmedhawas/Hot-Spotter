@@ -79,21 +79,27 @@
 }
 
 .circle:hover {
-	width: 35px;
- 	height: 35px;
+	width: 115px;
+	border-radius: 10px;
 }
 
-.green{
-	background-color: rgba(105, 165, 477, 0.2);
+.circle:hover .category{
+	display: block;
 }
 
-.yellow{
-	background-color: rgba(105, 165, 477, 0.4);
+.category{
+	display: none;
+	padding-left: 10px;
+	padding-top: 1px;
 }
 
-.blue{
-	background-color: rgba(105, 165, 477, 0.6);
-}
+.lightest{background-color: rgba(105, 165, 477, 0.2);}
+.light{background-color: rgba(105, 165, 477, 0.4);}
+
+.normal{background-color: rgba(105, 165, 477, 0.6);}
+.medium{background-color: rgba(105, 165, 477, 0.8);}
+.dark{background-color: rgba(105, 165, 477, 1.0);}
+
 .outerUpdateContainer{
 	/*border: solid 7px rgba(10, 275, 132, 0.2);*/
 	/*border: solid 7px rgba(105, 16, 442, 0.2);*/
@@ -134,25 +140,12 @@
 	border-bottom-right-radius: 2px;
 }
 
-.updateContainer:hover{
-	background: rgba(70, 106, 139, 0.5);
-}
+.updateContainer:hover{	background: rgba(70, 106, 139, 0.5);}
 
-.updateImage{
-	width: 20%;
-	float: left;
-}
 
-.updateComment{
-	width: 80%;
-	float: right;
-}
-
-.updateText{
-	width: 75%;
-	padding-left: 10px;
-	float: left;
-}
+.updateImage{ width: 20%; float: left;}
+.updateComment{ width: 80%; float: right;}
+.updateText{width: 75%; padding-left: 10px; float: left;}
 
 .updateLike{
 	width: 25%;
