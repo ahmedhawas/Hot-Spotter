@@ -14,14 +14,15 @@
 //= require jquery_ujs
 //= require underscore
 //= require_tree .
-$(function(){
-  if ($("#comments").length > 0) {
-    setTimeout(updateComments, 10000);
-  }
-});
 
-function updateComments () {
-  var after = $(".updateContainer:last-child").attr("data-time");
-  $.getScript("/updates.js?" + "after=" + after)
-  setTimeout(updateComments, 10000);
-}
+// $(function(){
+//   if ($(".updateContent").length > 0) {
+//     setTimeout(updateComments, 10000);
+//   }
+// });
+
+// function updateComments () {
+//   var after = $(".updateContainer:last-child").attr("data-time");
+//   $.getScript("/updates.js?" + "after=" + after)
+//   setTimeout(updateComments, 10000);
+// }

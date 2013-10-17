@@ -1,5 +1,4 @@
-<div class = "outerUpdateContainer">
-  <div class = "updateContent">
+
   <% @updates.each do |update| %>
     <a href="#"> <div id="comments" class = "updateContainer" data-lat="<%= update.lat %>" data-lng="<%= update.long %>" data-time= "<%= update.created_at.to_i%>"
       data-img="<%= render 'returnFbookOrAvatar', :update => update %>"></a>
@@ -30,9 +29,8 @@
               </div>
         </div>  
     </div>
-  <% end %>
-  </div> 
-</div>
+<% end %>
+ 
 
 <script> $('.outerUpdateContainer').hide() </script>
 <script> $('.outerUpdateContainer').delay(1500).fadeIn(1500); </script>
