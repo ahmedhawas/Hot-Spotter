@@ -10,14 +10,22 @@
 
 }
 
-#profileColumn{
+.displayNone{
 	display:none;
+}
+
+#profileColumn{
 	float: right;
 	height: 100%;
-	width: 400px;
+	width: 0;
 	background-color: #000;
 	opacity: 0.6;
 	z-index: 5;
+	transition: width 500ms ease-in-out;
+}
+
+#profileColumn.open{
+	width: 20%;
 }
 
 
@@ -88,7 +96,8 @@
 }
 .outerUpdateContainer{
 	/*border: solid 7px rgba(10, 275, 132, 0.2);*/
-	border: solid 7px rgba(105, 16, 442, 0.2);
+	/*border: solid 7px rgba(105, 16, 442, 0.2);*/
+	border: solid 7px rgba(105, 100, 442, 0.2);
 	/*border: 7px solid rgba(159, 36, 40, 0.4);*/
 	border-radius: 8px;
 	height: 500px;
@@ -141,6 +150,7 @@
 
 .updateText{
 	width: 75%;
+	padding-left: 10px;
 	float: left;
 }
 

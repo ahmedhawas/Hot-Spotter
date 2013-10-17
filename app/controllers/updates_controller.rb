@@ -25,12 +25,14 @@ class UpdatesController < ApplicationController
 	    @update.long=@user.long
 	    @update.likes=0
 
-	 #    Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+
+	  	#Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+
 		# response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long ,created_at:@update.created_at})
 
 	    if @update.save
 	    	  respond_to do |format|
-	    	  	format.html {redirect_to updates_path} 
+	    	  	# format.html {redirect_to updates_path} 
       			format.js {render json: @updates, content_type: 'text/json' }
    				end
 	   	  	# redirect_to updates_path, notice: "Update posted!"
