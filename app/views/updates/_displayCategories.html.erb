@@ -7,3 +7,153 @@
 <div class = "circle blue">
 	.
 </div>
+<div class = "circle red">
+  .
+</div>
+<div class = "circle orange">
+  .
+</div>
+<div class = "circle purple">
+  .
+</div>
+
+
+
+<script type="text/javascript">
+window.HeatMapModule = (function() {
+  var updatesPositions;
+
+   $('.green').click( function() {
+      heatmap.setMap(null)
+      j=0;
+      heatData = new Array
+      for (var i=0; i<updatesPositions.length ;i++)
+      { 
+         if (updatesPositions[i]['cat'] == 1)
+         {
+           lat= updatesPositions[i]['lat']
+           lng= updatesPositions[i]['lng']
+           heatData[j] = new google.maps.LatLng(lat, lng);
+           j=j+1;
+         }
+      }
+      heatmap = new google.maps.visualization.HeatmapLayer({
+         data: heatData,
+         radius: 20
+      });
+       heatmap.setMap(map);
+     });
+
+   $('.yellow').click( function() {
+      heatmap.setMap(null)
+      j=0;
+      heatData = new Array
+      for (var i=0; i<updatesPositions.length ;i++)
+      { 
+         if (updatesPositions[i]['cat'] == 2)
+         {
+           lat= updatesPositions[i]['lat']
+           lng= updatesPositions[i]['lng']
+           heatData[j] = new google.maps.LatLng(lat, lng);
+           j=j+1;
+         }
+      }
+      heatmap = new google.maps.visualization.HeatmapLayer({
+         data: heatData,
+         radius: 20
+      });
+       heatmap.setMap(map);
+     });
+
+   $('.blue').click( function() {
+      heatmap.setMap(null)
+      j=0;
+      heatData = new Array
+      for (var i=0; i<updatesPositions.length ;i++)
+      { 
+         if (updatesPositions[i]['cat'] == 3)
+         {
+           lat= updatesPositions[i]['lat']
+           lng= updatesPositions[i]['lng']
+           heatData[j] = new google.maps.LatLng(lat, lng);
+           j=j+1;
+         }
+      }
+      heatmap = new google.maps.visualization.HeatmapLayer({
+         data: heatData,
+         radius: 20
+      });
+       heatmap.setMap(map);
+     });
+
+   $('.red').click( function() {
+      heatmap.setMap(null)
+      j=0;
+      heatData = new Array
+      for (var i=0; i<updatesPositions.length ;i++)
+      { 
+         if (updatesPositions[i]['cat'] == 4)
+         {
+           lat= updatesPositions[i]['lat']
+           lng= updatesPositions[i]['lng']
+           heatData[j] = new google.maps.LatLng(lat, lng);
+           j=j+1;
+         }
+      }
+      heatmap = new google.maps.visualization.HeatmapLayer({
+         data: heatData,
+         radius: 20
+      });
+       heatmap.setMap(map);
+     });
+
+   $('.orange').click( function() {
+      heatmap.setMap(null)
+      j=0;
+      heatData = new Array
+      for (var i=0; i<updatesPositions.length ;i++)
+      { 
+         if (updatesPositions[i]['cat'] == 5)
+         {
+           lat= updatesPositions[i]['lat']
+           lng= updatesPositions[i]['lng']
+           heatData[j] = new google.maps.LatLng(lat, lng);
+           j=j+1;
+         }
+      }
+      heatmap = new google.maps.visualization.HeatmapLayer({
+         data: heatData,
+         radius: 20
+      });
+       heatmap.setMap(map);
+     });
+
+   $('.purple').click( function() {
+      heatmap.setMap(null)
+      j=0;
+      heatData = new Array
+      for (var i=0; i<updatesPositions.length ;i++)
+      { 
+         if (updatesPositions[i]['cat'] == 6)
+         {
+           lat= updatesPositions[i]['lat']
+           lng= updatesPositions[i]['lng']
+           heatData[j] = new google.maps.LatLng(lat, lng);
+           j=j+1;
+         }
+      }
+      heatmap = new google.maps.visualization.HeatmapLayer({
+         data: heatData,
+         radius: 20
+      });
+       heatmap.setMap(map);
+     });
+
+      return {
+    start: function(opts) {
+      updatesPositions = opts.updatesPositions;
+    }
+  };
+}());
+
+</script>

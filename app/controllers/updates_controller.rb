@@ -11,6 +11,8 @@ class UpdatesController < ApplicationController
 
 		@heatmap_data = get_heatmap_data.to_json
 		@update = @user.updates.build
+
+		@updates_positions= get_updates_data.to_json
 		# puts @heatmap_data 
 
 		# Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
@@ -80,6 +82,11 @@ class UpdatesController < ApplicationController
 		users.map { |user| {:lat => user.lat, :lng => user.long} }
 	end
 
+	def get_updates_data
+		updates = Update.all 
+		updates.map { |update| {:lat => update.lat, :lng => update.long, :cat => update.category_ids[0]} }
+	end
+	
 	protected
 	
 	def require_user

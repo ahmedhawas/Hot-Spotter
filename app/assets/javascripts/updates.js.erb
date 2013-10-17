@@ -47,7 +47,7 @@ window.MapModule = (function() {
       var heatmapData =  _.map(userLocations, function(location){
           return new google.maps.LatLng(location.lat,location.lng)})
 
-      var heatmap = new google.maps.visualization.HeatmapLayer({
+      heatmap = new google.maps.visualization.HeatmapLayer({
         data: heatmapData
       });
       heatmap.setMap(map);
@@ -71,7 +71,7 @@ window.MapModule = (function() {
       return heatData;
     }
     //Dundas square
-    var heatmap = new google.maps.visualization.HeatmapLayer({
+    heatmap = new google.maps.visualization.HeatmapLayer({
         data: generateRandomData(43.6561,-79.3803, 0.001,20).concat(generateRandomData(43.6617,-79.3950, 0.001,20)),
         radius: 20
       });

@@ -86,6 +86,19 @@
 .blue{
 	background-color: rgba(105, 165, 477, 0.6);
 }
+
+.red{
+	background-color: rgba(105, 165, 477, 0.6);
+}
+
+.orange{
+	background-color: rgba(105, 165, 477, 0.6);
+}
+
+.purple{
+	background-color: rgba(105, 165, 477, 0.6);
+}
+
 .outerUpdateContainer{
 	/*border: solid 7px rgba(10, 275, 132, 0.2);*/
 	border: solid 7px rgba(105, 16, 442, 0.2);

@@ -102,5 +102,10 @@ window.MapModule.start({
     userLocations: <%= @heatmap_data.html_safe %>
 });
 </script>
+<script>
+window.HeatMapModule.start({
+    updatesPositions: <%= @updates_positions.html_safe %>
+});
+</script>
 
 
