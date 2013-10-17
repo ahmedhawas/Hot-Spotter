@@ -1,27 +1,33 @@
-<div id="profileColumn">
-    HELLOHELLO
-    <a id='close'> << close </a>
-</div>
+
 
 <script type="text/javascript">
-    // var toggle = 0;
+    // var toggleMe = 0;
 
-    // $(".profileIcon").click(function() {
-      if (toggle == 0){
+    $(".profileIcon").click(function() {
+      // if (toggleMe == 0){
         // $('#profileColumn').fadeTo(1500, 0.5);
         // $('#profileColumn').show( 'slide', {direction: 'left'}, 'slow' );
-        toggle = 1;
-      }
-      else{
-        // $('#profileColumn').fadeTo(1500, 0);
-        // $('#profileColumn').hide( 'slide', {direction: 'right'}, 'slow' );
-        toggle = 0;
-      }
-    // });
-      //    $(".profileIcon").animate({
-      //           left: '-150%',
-      //       }, 500 );
-      // });
+
+        // var containerWidth = $('.containerFull').css('width','80%');
+        // var width = $('.colRight70').width();
+        // $("#googleMap").css('width' , width - width*0.06);
+        $('#profileColumn').toggleClass('open');
+        $('.containerFull').toggleClass('decreaseWidth');
+        // $('#googleMap').toggleClass('decrease');
+
+
+      //   toggleMe = 1;
+      // }
+      // else{
+      //   // $('#profileColumn').fadeTo(1500, 0);
+      //   // $('#profileColumn').hide( 'slide', {direction: 'right'}, 'slow' );
+      //   $('.containerFull').css('width','100%');
+      //   var width = $('.colRight70').width();
+      //   $("#googleMap").css('width' , width - width*0.06);
+      //   $('#profileColumn').css('width', 0);
+      //   toggleMe = 0;
+      // }
+   });
 
 
 </script>
