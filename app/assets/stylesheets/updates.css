@@ -16,8 +16,10 @@
 
 #profileColumn{
 	float: right;
+	padding-top: 25px;
+	padding-left: 15px;
 	height: 100%;
-	width: 0;
+	display: none;
 	background-color: #000;
 	opacity: 0.6;
 	z-index: 5;

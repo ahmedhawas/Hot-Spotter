@@ -11,7 +11,7 @@
         // var containerWidth = $('.containerFull').css('width','80%');
         // var width = $('.colRight70').width();
         // $("#googleMap").css('width' , width - width*0.06);
-        $('#profileColumn').toggleClass('open');
+        $('#profileColumn').toggle();
         $('.containerFull').toggleClass('decreaseWidth');
         // $('#googleMap').toggleClass('decrease');
 
@@ -114,9 +114,13 @@
   });
 </script>
 <script>
-window.MapModule.start({
-    userLocations: <%= @heatmap_data.html_safe %>
-});
+  $(document).ready( function() {
+    window.MapModule.start({
+        userLocations: <%= @heatmap_data.html_safe %>
+    });
+    resize();
+
+  });
 </script>
 
 

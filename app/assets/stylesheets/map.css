@@ -11,9 +11,6 @@
 			transition: width 500ms ease-in-out;
 }
 
-#googleMap.decrease{
-	/*width: 90%;*/
-}
 
 #searchBox{
 	position: absolute;
