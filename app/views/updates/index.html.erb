@@ -43,7 +43,7 @@
       <div class="modal textFont thinText smallestText">
         <a href="#" class="closeBtn textFont thinText smallestText"> x </a>
               
-        <%= form_for @update, :method => :post do |f|  %>
+        <%= form_for @update, :remote => true do |f|  %>
         <div class="centerText textFont thinText normalText">What's Sizzlin?</div> 
               <%= f.text_field :comment, {id: 'commentBox'} %></br>
               <%= f.file_field :attachment, {id: 'attachPhoto'} %>
@@ -87,6 +87,12 @@
 <script> $('#googleMap').delay(100).fadeIn(2500); </script>  
 <script> $('#searchBox').hide() </script>
 <script> $('#searchBox').delay(1500).fadeIn(1500); </script>  
+
+<script> $('#submitPost').click( function() {$('.overlay').delay(100).fadeOut(1000)}); </script>  
+<script> $('#submitPost').click( function() {
+              $('.modal').delay(100).fadeOut(1000);
+              $('.commentBox').val('');
+            }); </script>  
 
 <script type="text/javascript">
   $('#sizzleButton').modal({

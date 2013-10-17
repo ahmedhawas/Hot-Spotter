@@ -32,7 +32,7 @@ class UpdatesController < ApplicationController
 
 	    if @update.save
 	    	  respond_to do |format|
-	    	  	# format.html {redirect_to updates_path} 
+	    	  	format.html {redirect_to updates_path} 
       			format.js {render json: @updates, content_type: 'text/json' }
    				end
 	   	  	# redirect_to updates_path, notice: "Update posted!"
