@@ -101,6 +101,7 @@
 .normal{background-color: rgba(105, 165, 477, 0.6);}
 .medium{background-color: rgba(105, 165, 477, 0.8);}
 .dark{background-color: rgba(105, 165, 477, 1.0);}
+.darkest{background-color: rgba(105, 165, 477, 1.2);}
 
 
 .outerUpdateContainer{

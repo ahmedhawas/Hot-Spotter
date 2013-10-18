@@ -5,7 +5,7 @@ namespace :hotspotter do
       # Generate updates with different lat and long and catgeories to generate a heat map
       # Generate large radius points
       [Update].each(&:delete_all)
-      for i in 0..300 
+      for i in 0..100 
         user = User.limit(1).order('RANDOM()').first
         update = Update.new
         update.comment= "Restaurants"
@@ -73,7 +73,7 @@ namespace :hotspotter do
         update.save!
       end
       # Theatre Data
-      for i in 0..300 
+      for i in 0..100 
         user = User.limit(1).order('RANDOM()').first
         update = Update.new
         update.comment= "Theatre"
@@ -96,11 +96,14 @@ namespace :hotspotter do
           update.lat = 43.644585 + (rand-0.5)/15000 
           update.long = -79.386161 + (rand-0.5)/1500  
         elsif (random > 50 && random < 60)
-          update.lat = 43.645866 + (rand-0.5)/15000 
+          update.lat = 43.45866 + (rand-0.5)/15000 
           update.long = -79.385088 + (rand-0.5)/1500
         elsif (random > 60 && random < 70)
           update.lat = 43.645866 + (rand-0.5)/15000 
           update.long = -79.383436 + (rand-0.5)/1500
+        elsif (random > 70 && random < 80)
+          update.lat = 43.650376+ (rand-0.5)/15000 
+          update.long = -79.392024 + (rand-0.5)/1500
         else
           update.lat = 43.646068 + (rand-0.5)/15000 
           update.long = -79.385163 + (rand-0.5)/1500
@@ -110,7 +113,7 @@ namespace :hotspotter do
         update.save!
       end
       # Athletic Data
-      for i in 0..300 
+      for i in 0..100 
         user = User.limit(1).order('RANDOM()').first
         update = Update.new
         update.comment= "Athletic"
@@ -124,36 +127,36 @@ namespace :hotspotter do
           update.lat = 43.341112 + (rand-0.5)/15000 
           update.long = -79.38967 + (rand-0.5)/1500
         elsif (random > 20 && random < 30)
-          update.lat = 43.641112  + (rand-0.5)/15000 
-          update.long = -79.38967 + (rand-0.5)/1500
+          update.lat = 43.313112  + (rand-0.5)/15000 
+          update.long = -79.238967 + (rand-0.5)/1500
         elsif (random > 30 && random < 40)
-          update.lat = 43.641112 + (rand-0.5)/15000 
-          update.long = -79.38967 + (rand-0.5)/1500
+          update.lat = 43.6111 + (rand-0.5)/15000 
+          update.long = -79.28267 + (rand-0.5)/1500
         elsif (random > 40 && random < 50)
-          update.lat = 43.641112 + (rand-0.5)/15000 
-          update.long = -79.38967 + (rand-0.5)/1500  
+          update.lat = 43.12 + (rand-0.5)/15000 
+          update.long = -79.238967 + (rand-0.5)/1500  
         elsif (random > 50 && random < 60)
-          update.lat = 43.641112 + (rand-0.5)/15000 
-          update.long = -79.38967 + (rand-0.5)/1500
+          update.lat = 43.1112 + (rand-0.5)/15000 
+          update.long = -79.28967 + (rand-0.5)/1500
         elsif (random > 60 && random < 70)
           update.lat = 43.641112 + (rand-0.5)/15000 
           update.long = -79.38967 + (rand-0.5)/1500
         elsif (random > 70 && random < 80)
-          update.lat = 43.641112 + (rand-0.5)/15000 
-          update.long = -79.38967 + (rand-0.5)/1500
+          update.lat = 43.41112 + (rand-0.5)/15000 
+          update.long = -79.967 + (rand-0.5)/1500
         elsif (random > 80 && random < 90)
-          update.lat = 43.641112 + (rand-0.5)/15000 
-          update.long = -79.38967 + (rand-0.5)/1500
+          update.lat = 43.112 + (rand-0.5)/15000 
+          update.long = -79.8967 + (rand-0.5)/1500
         else
-          update.lat = 43.641112 + (rand-0.5)/15000 
-          update.long = -79.38967 + (rand-0.5)/1500
+          update.lat = 43.647768 + (rand-0.5)/15000 
+          update.long = -79.378871 + (rand-0.5)/1500
         end
         update.user_id = user.id
         update.category_ids = [10]
         update.save!
       end
       # Family Data
-      for i in 0..300 
+      for i in 0..100 
         user = User.limit(1).order('RANDOM()').first
         update = Update.new
         update.comment= "Family"
