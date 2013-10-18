@@ -41,10 +41,19 @@ window.HeatMapModule = (function() {
            heatData[j] = new google.maps.LatLng(lat, lng);
            j=j+1;
          }
+         else
+         {
+            lat= updatesPositions[i]['lat'];
+           lng= updatesPositions[i]['lng'];
+           heatData[j] = new google.maps.LatLng(lat, lng);
+           j=j+1;
+
+         }         
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
-         radius: 20
+         radius: 15,
+         opacity: 0.6
       });
        heatmap.setMap(map);
      });
@@ -65,7 +74,8 @@ window.HeatMapModule = (function() {
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
-         radius: 20
+         radius: 15,
+         opacity: 0.6
       });
        heatmap.setMap(map);
      });
@@ -86,7 +96,8 @@ window.HeatMapModule = (function() {
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
-         radius: 20
+         radius: 15,
+         opacity: 0.6
       });
        heatmap.setMap(map);
      });
@@ -107,7 +118,8 @@ window.HeatMapModule = (function() {
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
-         radius: 20
+         radius: 15,
+         opacity: 0.6
       });
        heatmap.setMap(map);
      });
@@ -128,7 +140,8 @@ window.HeatMapModule = (function() {
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
-         radius: 20
+         radius: 15,
+         opacity: 0.6
       });
        heatmap.setMap(map);
      });

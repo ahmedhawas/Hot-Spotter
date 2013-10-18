@@ -44,7 +44,7 @@ window.MapModule = (function() {
       map.mapTypes.set('Styled', styledMapType);
  
     
-      var heatmapData =  _.map(userLocations, function(location){
+      heatmapData =  _.map(userLocations, function(location){
           return new google.maps.LatLng(location.lat,location.lng)})
 
       heatmap = new google.maps.visualization.HeatmapLayer({
