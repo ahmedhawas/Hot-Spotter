@@ -29,6 +29,7 @@ Hotspotter::Application.routes.draw do
   resources :updates do 
       get 'like'
       get 'unlike'
+      get 'get_firebase_data'
   end
 
   resources :sessions, :except => [:show, :update, :destroy]

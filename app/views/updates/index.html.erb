@@ -33,9 +33,8 @@
 </script>
 
 <div class= "row textFont thinText bigText hoverText">
-
     <div class='colLeft30'>
-      <a class="modalLink" href="#"> What's Sizzlin </a> 
+      <a class="modalLink" href="#"> What's Sizzlin </a>
     </div>
     <div class='colRight70'>
       <%= render 'displayCategories' %>
@@ -61,8 +60,10 @@
 </div>      
 <div class="colLeft30">
   <div class = "outerUpdateContainer">
-    <div class = "updateContent">
+    <div id = "updateContent">
+      <a href="#"> <div id="comments" class = "updateContainer"></a>
       <%= render 'displayUpdates' %>
+       </div>
      </div> 
   </div>
 </div>

@@ -1,19 +1,19 @@
-$(function(){
-    function getRandomInRange(from, to, fixed) {
-      return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
-    }
-    function generateRandomData() {
-      var heatData = new Array(10000);
-      for (var i = 0; i < heatData.length; i++){
-        lat = getRandomInRange(43.645527, 43.660527, 4);
-        lng = getRandomInRange(-79.390961, -79.372961, 4);
+// $(function(){
+//     function getRandomInRange(from, to, fixed) {
+//       return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
+//     }
+//     function generateRandomData() {
+//       var heatData = new Array(10000);
+//       for (var i = 0; i < heatData.length; i++){
+//         lat = getRandomInRange(43.645527, 43.660527, 4);
+//         lng = getRandomInRange(-79.390961, -79.372961, 4);
        
-        heatData[i] = new google.maps.LatLng(lat,lng);
-      }
-      return heatData;
-    }
-    var heatmap = new google.maps.visualization.HeatmapLayer({
-        data: generateRandomData()
-      });
-      heatmap.setMap(map);
-});
+//         heatData[i] = new google.maps.LatLng(lat,lng);
+//       }
+//       return heatData;
+//     }
+//     var heatmap = new google.maps.visualization.HeatmapLayer({
+//         data: generateRandomData()
+//       });
+//       heatmap.setMap(map);
+// });
