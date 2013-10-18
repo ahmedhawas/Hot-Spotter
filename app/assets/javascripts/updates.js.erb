@@ -14,8 +14,6 @@ window.MapModule = (function() {
         // mapTypeId: google.maps.MapTypeId.ROADMAP
         mapTypeId: 'Styled'
       };
-      var testingLat = parseFloat(position.coords.latitude);
-      var testingLng = parseFloat(position.coords.longitude);
 
     $.ajax({
       type: 'PATCH',
@@ -95,8 +93,6 @@ window.MapModule = (function() {
   return {
     start: function(opts) {
       userLocations = opts.userLocations;
-      
-      console.log('Use locations', userLocations);
 
       if (navigator.geolocation) {
         var timeoutVal = 10 * 1000 * 1000;

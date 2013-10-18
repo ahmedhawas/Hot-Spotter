@@ -1,9 +1,9 @@
 
 function resize() {
     var height = $(window).height();
-    var width = $(window).width() - $(window).width()*(0.3 + 0.04);
+    var width = $('.colRight70').width() - $('.colRight70').width()*(0.3 + 0.04);
 
     $("#googleMap").css('height' , 500);
-    $("#googleMap").css('width' , width - width*0.06);
+    $("#googleMap").css('width' , width );
 
 }

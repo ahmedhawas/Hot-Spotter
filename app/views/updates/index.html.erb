@@ -33,9 +33,8 @@
 </script>
 
 <div class= "row textFont thinText bigText hoverText">
-
     <div class='colLeft30'>
-      <a class="modalLink" href="#"> What's Sizzlin </a> 
+      <a class="modalLink" href="#"> What's Sizzlin </a>
     </div>
     <div class='colRight70'>
       <%= render 'displayCategories' %>
@@ -43,7 +42,7 @@
       <div class="modal textFont thinText smallestText">
         <a href="#" class="closeBtn textFont thinText smallestText"> x </a>
               
-        <%= form_for @update, :remote => true do |f|  %>
+        <%= form_for @update do |f|  %>
         <div class="centerText textFont thinText normalText">What's Sizzlin?</div> 
               <%= f.text_field :comment, {id: 'commentBox'} %></br>
               <%= f.file_field :attachment, {id: 'attachPhoto'} %>
@@ -61,8 +60,10 @@
 </div>      
 <div class="colLeft30">
   <div class = "outerUpdateContainer">
-    <div class = "updateContent">
+    <div id = "updateContent">
+      <a href="#"> <div id="comments" class = "updateContainer"></a>
       <%= render 'displayUpdates' %>
+       </div>
      </div> 
   </div>
 </div>
@@ -72,7 +73,9 @@
         <input type="button" class = "arrow_box" onclick="codeAddress()">
     </div>
     <div id="googleMap" style="width:500px;height:380px;"></div>
+    <div class = 'photoBox'>........</div>
 </div>
+
 
 
 <% if logged_in? %>

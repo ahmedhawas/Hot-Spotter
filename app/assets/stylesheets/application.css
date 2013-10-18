@@ -24,6 +24,7 @@ body {
 	padding-top: 0;
 	padding-bottom: 0;
 	height:100%;
+	box-sizing: border-box;
 }
 
 .textFont {font-family: 'Lato', sans-up; margin:0px;}

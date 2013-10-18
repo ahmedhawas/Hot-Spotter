@@ -13,8 +13,8 @@ class UpdatesController < ApplicationController
 		@update = @user.updates.build
 		# puts @heatmap_data 
 
-		# Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
-		# @firebase_updates = Firebase.get("updates")
+		@lastUpdateTime = Time.now.localtime.strftime("%I:%M%p") 
+		
 	end
 
 	def create
@@ -25,10 +25,11 @@ class UpdatesController < ApplicationController
 	    @update.long=@user.long
 	    @update.likes=0
 
-
-	  	#Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
-
-		# response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long ,created_at:@update.created_at})
+	    firebase_id = Update.last.id.to_i
+	  	Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+		# response = Firebase.push("updates/",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:Time.now.localtime.strftime("%I:%M%p")})
+		response = Firebase.push( firebase_id ,{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:Time.now.localtime.strftime("%I:%M%p")})
+		
 
 	    if @update.save
 	    	  respond_to do |format|
@@ -80,6 +81,24 @@ class UpdatesController < ApplicationController
 	def get_heatmap_data
 		users = User.all 
 		users.map { |user| {:lat => user.lat, :lng => user.long} }
+	end
+
+	def get_firebase_data
+		Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+		firebase_updates = Firebase.get("updates")
+
+		firebase_updates.body.each_key do |key|
+      		updateTime = firebase_updates.body[key]["created_at"]
+      		if( updateTime >= @lastUpdateTime)
+      			newUpdate.push(firebase_updates.body[key])
+      		end
+    	end 
+    	@lastUpdateTime = updateTime
+
+
+    	respond_to do |format|
+    		format.json {render :json => 'newUpdate'}
+    	end
 	end
 
 	protected

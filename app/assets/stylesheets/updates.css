@@ -112,7 +112,7 @@
 	overflow: hidden;
 }
 
-.updateContent{
+#updateContent{
 	height: 500px;
 	overflow: auto;
 }
@@ -155,6 +155,11 @@
 	padding: 10px;
 }
 
+.photoBox{
+	height: 100%;
+	width: 15%;
+	float: right;
+}
 .heart {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAYAAAA/mJfHAAABH0lEQVQ4y62T30vCUBiGv/9YuhBLkCA08FdogRFFYFEUhhZNCCQoSESiIOii68pl5qV6s8Eb7+SMHXNs6S7ejZ3zvA+ccT4BICofvS88dJ7w8vqG8WQC754K17lPjrx3z3l8D4YoVaqIrWbcJNbzaHefNZjfXPdy5b0jsO/IRqMxUpmSBnhz2bx1QL79GPbpEePmzhdSyW8fBDL0SK68HwiGCT2S3NiKREaPzP7QRRNPZSHpwm4kMnqkYbQikdEjZv8HK2ubS4nY75mD6WU8qzeXkrHvToBlWSjuHC4kYo99V8bwBnM0/iMiz542myq2bSPskcmR/zPos7lvP8Lv/nGd+/N6c2Xq2KcXhiY6qV1rxwotU3n/NHF8fgW+g9hfsHJlJUYljcgAAAAASUVORK5CYII=) !important;
   height:17px;
