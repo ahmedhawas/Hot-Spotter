@@ -9,6 +9,7 @@
 			/*border: 7px solid rgba(158, 36, 497, 0.2);*/
 			border: solid 7px rgba(105, 100, 442, 0.2);
 			transition: width 500ms ease-in-out;
+			float: left;
 }
 
 
