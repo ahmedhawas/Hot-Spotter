@@ -10,7 +10,7 @@
  		var pos = new google.maps.LatLng(lat, lng);
 
  		if (toggle == 0){
- 			console.log(markerImg);
+ 			// console.log(markerImg);
 		 	updateMarker = new google.maps.Marker({
 	        position: pos,
 	        map: map,

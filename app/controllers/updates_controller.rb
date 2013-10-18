@@ -11,12 +11,10 @@ class UpdatesController < ApplicationController
 
 		@heatmap_data = get_heatmap_data.to_json
 		@update = @user.updates.build
-
-		@updates_positions= get_updates_data.to_json
 		# puts @heatmap_data 
 
-		# Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
-		# @firebase_updates = Firebase.get("updates")
+		@lastUpdateTime = Time.now.localtime.strftime("%I:%M%p") 
+		
 	end
 
 	def create
@@ -26,22 +24,20 @@ class UpdatesController < ApplicationController
 	    @update.lat=@user.lat
 	    @update.long=@user.long
 	    @update.likes=0
-
-
-	  	#Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
-
-		# response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:@update.created_at})
-
-	    if @update.save
-	    	  respond_to do |format|
-	    	  	format.html {redirect_to updates_path} 
-      			format.js {render json: @updates, content_type: 'text/json' }
-   				end
-	   	  	# redirect_to updates_path, notice: "Update posted!"
+      if @update.save
+      	firebase_id = Update.last.id.to_i
+		  	Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+				# response = Firebase.push("updates/",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:Time.now.localtime.strftime("%I:%M%p")})
+				response = Firebase.set( firebase_id ,{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:Time.now.localtime.strftime("%I:%M%p")})
+  	  	
+  	  	respond_to do |format|
+  	  	format.html {redirect_to updates_path} 
+  			format.js {render json: @updates, content_type: 'text/json' }
+			end
+ 	  	# redirect_to updates_path, notice: "Update posted!"
 	    else
 	      	render :updates
 	    end
-	  
 	end
 
 	def destroy
@@ -84,11 +80,24 @@ class UpdatesController < ApplicationController
 		users.map { |user| {:lat => user.lat, :lng => user.long} }
 	end
 
-	def get_updates_data
-		updates = Update.all 
-		updates.map { |update| {:lat => update.lat, :lng => update.long, :cat => update.category_ids[0]} }
+	def get_firebase_data
+		Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+		firebase_updates = Firebase.get("updates")
+
+		firebase_updates.body.each_key do |key|
+      		updateTime = firebase_updates.body[key]["created_at"]
+      		if( updateTime >= @lastUpdateTime)
+      			newUpdate.push(firebase_updates.body[key])
+      		end
+    	end 
+    	@lastUpdateTime = updateTime
+
+
+    	respond_to do |format|
+    		format.json {render :json => 'newUpdate'}
+    	end
 	end
-	
+
 	protected
 	
 	def require_user
