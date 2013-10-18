@@ -35,11 +35,8 @@ window.HeatMapModule = (function() {
 
    $('.lightest').click( function() {
       heatmap.setMap(null);
-      heatmap.setMap(null);
       var j=0;
-      var k=0
-      heatData = new Array;
-      heatData_other = new Array;
+      var heatData = new Array;
       for (var i=0; i<updatesPositions.length ;i++)
       { 
          if (updatesPositions[i]['cat'] == 7)
@@ -48,14 +45,7 @@ window.HeatMapModule = (function() {
            lng= updatesPositions[i]['lng'];
            heatData[j] = new google.maps.LatLng(lat, lng);
            j=j+1;
-         }
-         else
-         {
-          lat= updatesPositions[i]['lat'];
-          lng= updatesPositions[i]['lng'];
-          heatData_other[k] = new google.maps.LatLng(lat, lng);
-          k=k+1;
-         }         
+         }    
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
@@ -63,20 +53,13 @@ window.HeatMapModule = (function() {
          opacity: 0.8
       });
       heatmap.setMap(map);
-      heatmap = new google.maps.visualization.HeatmapLayer({
-         data: heatData_other,
-         radius: 15,
-         opacity: 0.2
-      });
-       heatmap.setMap(map);
      });
 
    $('.light').click( function() {
       heatmap.setMap(null);
       var j=0;
       var k=0
-      heatData = new Array;
-      heatData_other = new Array;
+      var heatData = new Array;
       for (var i=0; i<updatesPositions.length ;i++)
       { 
          if (updatesPositions[i]['cat'] == 8)
@@ -85,35 +68,21 @@ window.HeatMapModule = (function() {
            lng= updatesPositions[i]['lng'];
            heatData[j] = new google.maps.LatLng(lat, lng);
            j=j+1;
-         }
-         else
-         {
-          lat= updatesPositions[i]['lat'];
-          lng= updatesPositions[i]['lng'];
-          heatData_other[k] = new google.maps.LatLng(lat, lng);
-          k=k+1;
-         }         
+         }      
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
          radius: 15,
-         opacity: 0.8
+         opacity: 0.9
       });
       heatmap.setMap(map);
-      heatmap = new google.maps.visualization.HeatmapLayer({
-         data: heatData_other,
-         radius: 15,
-         opacity: 0.2
-      });
-       heatmap.setMap(map);
      });
 
    $('.normal').click( function() {
       heatmap.setMap(null);
       var j=0;
       var k=0
-      heatData = new Array;
-      heatData_other = new Array;
+      var heatData = new Array;
       for (var i=0; i<updatesPositions.length ;i++)
       { 
          if (updatesPositions[i]['cat'] == 9)
@@ -122,35 +91,21 @@ window.HeatMapModule = (function() {
            lng= updatesPositions[i]['lng'];
            heatData[j] = new google.maps.LatLng(lat, lng);
            j=j+1;
-         }
-         else
-         {
-          lat= updatesPositions[i]['lat'];
-          lng= updatesPositions[i]['lng'];
-          heatData_other[k] = new google.maps.LatLng(lat, lng);
-          k=k+1;
-         }         
+         }   
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
          radius: 15,
-         opacity: 0.8
+         opacity: 0.9
       });
       heatmap.setMap(map);
-      heatmap = new google.maps.visualization.HeatmapLayer({
-         data: heatData_other,
-         radius: 15,
-         opacity: 0.2
-      });
-       heatmap.setMap(map);
      });
 
    $('.medium').click( function() {
       heatmap.setMap(null);
       var j=0;
       var k=0
-      heatData = new Array;
-      heatData_other = new Array;
+      var heatData = new Array;
       for (var i=0; i<updatesPositions.length ;i++)
       { 
          if (updatesPositions[i]['cat'] == 10)
@@ -159,35 +114,22 @@ window.HeatMapModule = (function() {
            lng= updatesPositions[i]['lng'];
            heatData[j] = new google.maps.LatLng(lat, lng);
            j=j+1;
-         }
-         else
-         {
-          lat= updatesPositions[i]['lat'];
-          lng= updatesPositions[i]['lng'];
-          heatData_other[k] = new google.maps.LatLng(lat, lng);
-          k=k+1;
-         }         
+         }      
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
          radius: 15,
-         opacity: 0.8
+         opacity: 0.9
       });
       heatmap.setMap(map);
-      heatmap = new google.maps.visualization.HeatmapLayer({
-         data: heatData_other,
-         radius: 15,
-         opacity: 0.2
-      });
-       heatmap.setMap(map);
      });
 
     $('.dark').click( function() {
       heatmap.setMap(null);
       var j=0;
       var k=0
-      heatData = new Array;
-      heatData_other = new Array;
+      var heatData = new Array;
+      var heatData_other = new Array;
       for (var i=0; i<updatesPositions.length ;i++)
       { 
          if (updatesPositions[i]['cat'] == 11)
@@ -196,33 +138,20 @@ window.HeatMapModule = (function() {
            lng= updatesPositions[i]['lng'];
            heatData[j] = new google.maps.LatLng(lat, lng);
            j=j+1;
-         }
-         else
-         {
-          lat= updatesPositions[i]['lat'];
-          lng= updatesPositions[i]['lng'];
-          heatData_other[k] = new google.maps.LatLng(lat, lng);
-          k=k+1;
-         }         
+         }      
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
          radius: 15,
-         opacity: 0.8
+         opacity: 0.9
       });
       heatmap.setMap(map);
-      heatmap = new google.maps.visualization.HeatmapLayer({
-         data: heatData_other,
-         radius: 15,
-         opacity: 0.2
-      });
-       heatmap.setMap(map);
      });
        $('.darkest').click( function() {
       heatmap.setMap(null);
       var j=0;
       var k=0
-      heatData = new Array;
+      var heatData = new Array;
       for (var i=0; i<updatesPositions.length ;i++)
       { 
          lat= updatesPositions[i]['lat'];
@@ -232,8 +161,7 @@ window.HeatMapModule = (function() {
       }
       heatmap = new google.maps.visualization.HeatmapLayer({
          data: heatData,
-         radius: 15,
-         opacity: 0.8
+         radius: 10
       });
        heatmap.setMap(map);
      });
