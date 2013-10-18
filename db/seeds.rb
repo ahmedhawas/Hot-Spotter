@@ -16,7 +16,7 @@ Category.create(
 
 
   Category.create(
-    update_type: "Theatre"
+    update_type: "Entertainment"
     )
 
 

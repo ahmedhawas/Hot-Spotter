@@ -5,6 +5,7 @@ namespace :hotspotter do
       # Generate updates with different lat and long and catgeories to generate a heat map
       # Generate large radius points
       [Update].each(&:delete_all)
+
       for i in 0..100 
         user = User.limit(1).order('RANDOM()').first
         update = Update.new
@@ -198,8 +199,157 @@ namespace :hotspotter do
         update.category_ids = [11]
         update.save!
       end
+### START OF YORKVILLE FAKE DATA
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "OMG Packed!!!"
+      update.likes = 0
+      update.lat = 43.670749
+      update.long = -79.39304
+      update.user_id = user.id
+      update.category_ids = [7]
+      update.attachment = File.open(Dir.glob(File.join(Rails.root, 'locationimages', 'restaurant_packed.jpeg')).sample)
+      update.save!
 
-      
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Shld I eat this?!"
+      update.likes = 0
+      update.lat = 43.669816
+      update.long = -79.393945
+      update.user_id = user.id
+      update.category_ids = [7]
+      update.attachment = File.open(Dir.glob(File.join(Rails.root, 'locationimages', 'bad_food.jpeg')).sample)
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Chef Yamasaki today"
+      update.likes = 0
+      update.lat = 43.670433
+      update.long = -79.393113
+      update.user_id = user.id
+      update.category_ids = [7]
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Drake!!"
+      update.likes = 0
+      update.lat = 43.671798
+      update.long = -79.390908
+      update.user_id = user.id
+      update.category_ids = [7]
+      update.attachment = File.open(Dir.glob(File.join(Rails.root, 'locationimages', 'drake.jpeg')).sample)
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Chicken Soup Special :("
+      update.likes = 0
+      update.lat = 43.670805
+      update.long = -79.389412
+      update.user_id = user.id
+      update.category_ids = [7]
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Understaffed"
+      update.likes = 0
+      update.lat = 43.671523
+      update.long = -79.389074
+      update.user_id = user.id
+      update.category_ids = [7]
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Great special"
+      update.likes = 0
+      update.lat = 43.671488
+      update.long = -79.389208
+      update.user_id = user.id
+      update.category_ids = [7]
+      update.attachment = File.open(Dir.glob(File.join(Rails.root, 'locationimages', 'good_food.jpeg')).sample)
+      update.save!
+### END OF RESTAURANT DATA
+
+### START OF CONCERT DATA
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Stage is empty"
+      update.likes = 0
+      update.lat = 43.643032
+      update.long = -79.396284
+      update.user_id = user.id
+      update.category_ids = [9]
+      update.attachment = File.open(Dir.glob(File.join(Rails.root, 'locationimages', 'empty_stage.jpeg')).sample)
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Maroon 5 Bus"
+      update.likes = 0
+      update.lat = 43.638575
+      update.long = -79.404566
+      update.user_id = user.id
+      update.category_ids = [9]
+      update.attachment = File.open(Dir.glob(File.join(Rails.root, 'locationimages', 'bus.jpeg')).sample)
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Selling $100 tickets"
+      update.likes = 0
+      update.lat = 43.641495
+      update.long = -79.394588
+      update.user_id = user.id
+      update.category_ids = [9]
+      update.attachment = File.open(Dir.glob(File.join(Rails.root, 'locationimages', 'ticket.jpeg')).sample)
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Tickets anyone?"
+      update.likes = 0
+      update.lat = 43.639740
+      update.long = -79.399202
+      update.user_id = user.id
+      update.category_ids = [9]
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Too early"
+      update.likes = 0
+      update.lat = 43.640920
+      update.long = -79.393945
+      update.user_id = user.id
+      update.category_ids = [9]
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Nice backgorund music"
+      update.likes = 0
+      update.lat = 43.640579
+      update.long = -79.393709
+      update.user_id = user.id
+      update.category_ids = [9]
+      update.save!
+
+      user = User.limit(1).order('RANDOM()').first
+      update = Update.new
+      update.comment= "Exciting Stage"
+      update.likes = 0
+      update.lat = 43.640392
+      update.long = -79.393709
+      update.user_id = user.id
+      update.category_ids = [9]
+      update.attachment = File.open(Dir.glob(File.join(Rails.root, 'locationimages', 'stage.jpeg')).sample)
+      update.save!
+### END OF CONCERT DATA
 
       # Start of data for live updates
       # comments = ["Just met...","Starbs here packed","Live show","Beautiful weather","No chicken at restaurant.."]
