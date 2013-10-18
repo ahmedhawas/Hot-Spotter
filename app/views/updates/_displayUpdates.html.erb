@@ -57,30 +57,7 @@ $(document).ready( function() {
 <!-- <input type='text' id='messageInput' placeholder='Message...'> -->
 
 <script type='text/javascript'>
-$(function(){
-   var messagesRef = new Firebase('https://hot-spotter.firebaseio.com/');
-   // messagesRef.limit(10).on('child_added', function (snapshot) {
-    messagesRef.once('value', function (snapshot) {
-   //var newMessage = new Firebase('https://hot-spotter.firebaseio.com/<%=Update.last.id-1%>')
-      var message = snapshot.val();
-      console.log(message); 
-      // console.log(messagesRef.child('<%=Update.last.id-1%>').snapshot); 
 
-      $('<div/>').text(message.text).prepend($('<em/>').appendTo($('.updateContainer')));
-      $('.updateContainer')[0].scrollTop = $('.updateContainer')[0].scrollHeight; 
-
-      // var template = document.getElementById('updateTemplate').innerHTML;
-      // var output = Mustache.render(template, message);
-      // document.getElementById('updateContent').innerHTML = output
-      // $('.updateContainer').prepend(output);
-
-
-    // });
-    // console.log('<%=Update.last.id%>')
-
-  });
-
-});
 </script>
 
 

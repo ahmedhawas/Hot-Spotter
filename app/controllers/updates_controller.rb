@@ -31,10 +31,10 @@ class UpdatesController < ApplicationController
 	  	#Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
 
 		# response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:@update.created_at})
-	    firebase_id = Update.last.id.to_i
-	  	Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
+	    # firebase_id = Update.last.id.to_i
+	  	# Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
 		# response = Firebase.push("updates/",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:Time.now.localtime.strftime("%I:%M%p")})
-		response = Firebase.push( firebase_id ,{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:Time.now.localtime.strftime("%I:%M%p")})
+		# response = Firebase.push( firebase_id ,{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:Time.now.localtime.strftime("%I:%M%p")})
 		
 
 	    if @update.save

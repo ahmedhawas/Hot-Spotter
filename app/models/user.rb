@@ -19,13 +19,13 @@ class User < ActiveRecord::Base
 
   def reputation
     if self.likes <= 2
-      return "Gotta put Happening Updates"
+      return "Starting"
     elsif self.likes <= 10
       return "Moderate"
     elsif self.likes <= 50
       return "Location Expert"
     else
-      return "Guru of Hip Locations"
+      return "Guru"
     end   
   end
 

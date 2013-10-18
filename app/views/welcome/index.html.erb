@@ -12,7 +12,7 @@
     	<% else %>
 
     	<div class="btn btn-facebook icon-large icon-facebook">
-  		<%= link_to '| Sign in with Facebook', auth_at_provider_path(:provider => :facebook), class: 'textFont linkText smallText' %>
+  		<%= link_to 'Sign in with Facebook', auth_at_provider_path(:provider => :facebook), class: 'textFont linkText smallText' %>
   	</div></br></br>
   		  <%= link_to 'Sign In', new_session_path, class: 'textFont linkText smallText' %> &nbsp;&nbsp;&nbsp;
   		  <%= link_to 'Sign Up', new_user_path, class: 'textFont linkText smallText' %>
@@ -22,9 +22,6 @@
 
 <script>$('.centerText').hide();</script>
 <script>$('.centerText').delay(500).fadeIn(2000);</script>
-
-
-
 
 
 
