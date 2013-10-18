@@ -33,6 +33,9 @@
 
 <div class="containerFull">
 <div class='top-bar'>
+  <div id="logo"></div>
+  <script> $('#logo').hide(); </script>
+  <script> $('#logo').delay(100).fadeIn(1000); </script>
     <% if logged_in? %>
           <% if  @user.facebook_img %>
                 <%#= link_to (user_path(@current_user.id)) do %>
@@ -46,6 +49,7 @@
           <% end %>        
     <% else %>
     <% end %>
+
 </div>
 <div class = "leftMargin"> 
   	<% if flash[:notice] %>
