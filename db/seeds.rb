@@ -6,22 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Category.create(
-    update_type: "Food"
+    update_type: "Restaurants"
     )
 
 
   Category.create(
-    update_type: "Theatre"
+    update_type: "Night Life"
   )
 
 
   Category.create(
-    update_type: "Nightlife"
-    )
-
-
-  Category.create(
-    update_type: "Family"
+    update_type: "Theatre"
     )
 
 
@@ -29,6 +24,7 @@ Category.create(
     update_type: "Athletic"
     )
 
+
   Category.create(
-    update_type: "Entertainment"
+    update_type: "Family"
     )

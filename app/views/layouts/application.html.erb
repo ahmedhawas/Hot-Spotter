@@ -23,9 +23,11 @@
 
 </head>
 <body>
+<% if logged_in? %>
 <div id="profileColumn">
   <%= render '/users/userProfile'%>
 </div>
+<%end%>
 
 <div class="containerFull">
 <div class='top-bar'>

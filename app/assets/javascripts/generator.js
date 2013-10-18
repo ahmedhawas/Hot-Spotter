@@ -68,6 +68,7 @@ function updateMap() {
     var scrollWheel = Boolean(jQuery("select#scrollWheel").val());
     var color = jQuery("#color").val();
     // Re-draw the map according to settings selected
+    var gMap = data.gMap; // Added this line for error canceling
     $("#responsive_map").gMap({
         maptype: mapType,
         zoom: zoom,

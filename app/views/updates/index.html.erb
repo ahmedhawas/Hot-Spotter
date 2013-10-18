@@ -43,7 +43,7 @@
       <div class="modal textFont thinText smallestText">
         <a href="#" class="closeBtn textFont thinText smallestText"> x </a>
               
-        <%= form_for @update, :remote => true do |f|  %>
+        <%= form_for @update do |f|  %>
         <div class="centerText textFont thinText normalText">What's Sizzlin?</div> 
               <%= f.text_field :comment, {id: 'commentBox'} %></br>
               <%= f.file_field :attachment, {id: 'attachPhoto'} %>

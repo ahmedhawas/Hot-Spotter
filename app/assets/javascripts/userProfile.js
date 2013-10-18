@@ -10,9 +10,8 @@
 $(document).ready(function() {
     $(".profileIcon").click(function() {
     	// $('#profileColumn').fadeTo(3000, 0.5);
-
-  
-)};
+    });      
+});
 
 // $(document).ready(function() {
 //   $('#slidemarginleft button').click(function() {

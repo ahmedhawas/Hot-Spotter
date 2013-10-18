@@ -30,7 +30,7 @@ class UpdatesController < ApplicationController
 
 	  	#Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
 
-		# response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long ,created_at:@update.created_at})
+		# response = Firebase.push("updates",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:@update.created_at})
 
 	    if @update.save
 	    	  respond_to do |format|
