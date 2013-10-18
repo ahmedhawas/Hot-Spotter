@@ -12,8 +12,6 @@
   <script type="text/javascript"
   src="http://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.gmap.min.js"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 
@@ -23,9 +21,11 @@
 
 </head>
 <body>
+<% if logged_in? %>
 <div id="profileColumn">
   <%= render '/users/userProfile'%>
 </div>
+<% end %>
 
 <div class="containerFull">
 <div class='top-bar'>
