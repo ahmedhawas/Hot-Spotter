@@ -4,7 +4,7 @@ namespace :db do
     require 'populator'
     require 'faker'
     
-    [User].each(&:delete_all)
+    # [User].each(&:delete_all)
 
     User.populate 100 do |user|
       user.username=Faker::Name.name
