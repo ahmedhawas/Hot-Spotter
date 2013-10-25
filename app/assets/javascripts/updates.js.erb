@@ -2,8 +2,8 @@ window.MapModule = (function() {
   var userLocations;
 
  function displayPosition(position) {
-      if (position.coords == undefined){
-        return
+      if (!position.coords) {
+        return;
       }
       var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       resize();
