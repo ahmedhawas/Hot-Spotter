@@ -23,9 +23,9 @@ class UpdatesController < ApplicationController
 		@category = Category.new
 		@update = @user.updates.build update_params
 
-	    @update.lat=@user.lat
-	    @update.long=@user.long
-	    @update.likes=0
+    @update.lat=@user.lat
+    @update.long=@user.long
+    @update.likes=0
 
 
 	  	#Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
@@ -36,16 +36,17 @@ class UpdatesController < ApplicationController
 		# response = Firebase.push("updates/",{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:Time.now.localtime.strftime("%I:%M%p")})
 		# response = Firebase.push( firebase_id ,{username:@update.user.username, comment:@update.comment, likes:@update.likes, attachment:@update.attachment, lat:@update.lat , long:@update.long , created_at:Time.now.localtime.strftime("%I:%M%p")})
 		
-
+		respond_to do |format|
 	    if @update.save
-	    	  respond_to do |format|
 	    	  	format.html {redirect_to updates_path} 
-      			format.js {render json: @updates, content_type: 'text/json' }
-   				end
-	   	  	# redirect_to updates_path, notice: "Update posted!"
+      			# format.js {render json: @updates, content_type: 'text/json' }
+      			format.js {}
+	   	  		# redirect_to updates_path, notice: "Update posted!"
 	    else
-	      	render :updates
+	      	format.html{ render :updates }
+	      	format.js {}
 	    end
+	  end
 	  
 	end
 

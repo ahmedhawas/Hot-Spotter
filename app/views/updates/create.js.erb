@@ -1,2 +1,6 @@
-
-$(".updateContent").html("<%= escape_javascript(render(:partial => '/updates/displayUpdates')) %>");
+$(function(){
+  alert("I’m responding to your request!");
+  var x = $(".updateContainer");
+  console.log(x.html);
+  $(".updateContainer").html("<%= escape_javascript(render(:partial => '/updates/displayUpdates')) %>";
+});
