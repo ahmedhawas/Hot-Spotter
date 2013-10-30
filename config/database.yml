@@ -1,7 +1,9 @@
 
 development:
   adapter: postgresql
+  encoding: unicode
   database: hotspotter_development
+  pool: 5
   host: localhost
 
 test:
