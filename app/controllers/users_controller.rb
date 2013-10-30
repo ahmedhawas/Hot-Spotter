@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user=current_user
+    @user=User.find(params[:id])
     @updates=@user.updates.order("created_at DESC")
 
     @updates_data = get_updates_data.to_json

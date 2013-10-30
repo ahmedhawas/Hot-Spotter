@@ -1,6 +1,4 @@
-$(function(){
-  alert("I’m responding to your request!");
-  var x = $(".updateContainer");
-  console.log(x.html);
-  $(".updateContainer").html("<%= escape_javascript(render(:partial => '/updates/displayUpdates')) %>";
-});
+// alert("<%= escape_javascript(render(:partial => '/updates/displayUpdates')) %>");
+var x = $(".updateContainer");
+x.html("<%= escape_javascript(render(:partial => '/updates/displayUpdates')) %>");
+// $(".updateContainer").html("<%= escape_javascript(render(:partial => '/updates/displayUpdates')) %>";

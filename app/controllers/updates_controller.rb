@@ -27,6 +27,9 @@ class UpdatesController < ApplicationController
     @update.long=@user.long
     @update.likes=0
 
+   	@updates = Update.order("created_at DESC").where("created_at > ?", Time.at(params[:after].to_i+1))
+
+
 
 	  	#Firebase.base_uri = 'https://hot-spotter.firebaseio.com/'
 
@@ -40,7 +43,7 @@ class UpdatesController < ApplicationController
 	    if @update.save
 	    	  	format.html {redirect_to updates_path} 
       			# format.js {render json: @updates, content_type: 'text/json' }
-      			format.js {}
+      			format.js
 	   	  		# redirect_to updates_path, notice: "Update posted!"
 	    else
 	      	format.html{ render :updates }
